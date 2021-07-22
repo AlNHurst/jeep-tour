@@ -25,7 +25,7 @@ const Profile = () => {
   if (error) console.log(error);
 
   // redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.id === id) {
+  if (Auth.loggedIn() && Auth.getProfile().data._id === id) {
     return <Redirect to="/me" />;
   }
 
@@ -45,7 +45,7 @@ const Profile = () => {
   const renderUserList = () => {
     if (usersLoading) return null;
     // Only renders users who's profile we're not currently viewing
-    const notMeUsers = users.filter(o => o.id !== user.id);
+    const notMeUsers = users.filter(o => o._id !== user._id);
     return (
       <div className="col-12 col-md-10 mb-5">
         <UserList users={notMeUsers} title="User List" />

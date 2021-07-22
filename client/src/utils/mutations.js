@@ -5,7 +5,7 @@ export const LOGIN_USER = gql`
     login(email: $email, password: $password) {
       token
       user {
-        id
+        _id
         username
       }
     }
@@ -17,7 +17,7 @@ export const ADD_USER = gql`
     addUser(username: $username, email: $email, password: $password) {
       token
       user {
-        id
+        _id
         username
       }
     }
@@ -27,12 +27,12 @@ export const ADD_USER = gql`
 export const ADD_THOUGHT = gql`
   mutation addThought($thoughtText: String!) {
     addThought(thoughtText: $thoughtText) {
-      id
+      _id
       thoughtText
       thoughtAuthor
       createdAt
       comments {
-        id
+        _id
         commentText
       }
     }
@@ -42,12 +42,12 @@ export const ADD_THOUGHT = gql`
 export const ADD_COMMENT = gql`
   mutation addComment($thoughtId: ID!, $commentText: String!) {
     addComment(thoughtId: $thoughtId, commentText: $commentText) {
-      id
+      _id
       thoughtText
       thoughtAuthor
       createdAt
       comments {
-        id
+        _id
         commentText
         createdAt
       }
