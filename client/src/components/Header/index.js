@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Login from '../../pages/Login';
 import Signup from '../../pages/Signup';
@@ -29,10 +29,10 @@ const Header = () => {
     }
 
     const renderLoginSignOut = () => {
-      if(showLogin) {
+      if (showLogin) {
         return <Login>
-      </Login>
-      } 
+        </Login>
+      }
       return <Signup>
       </Signup>
     };
@@ -40,10 +40,10 @@ const Header = () => {
     // If logged out show login controls
     return (
       <>
-      {renderLoginSignOut()}
-      
-      <Link onClick={() => setShowLogin((prev) => !prev)}>SignUp</Link>
-      
+        {renderLoginSignOut()}
+
+        <Link onClick={() => setShowLogin((prev) => !prev)}>SignUp</Link>
+
         {/* <Link className="btn btn-lg btn-info m-2" to="/login">
           Login
         </Link>
