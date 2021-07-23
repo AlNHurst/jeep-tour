@@ -41,7 +41,6 @@ export const QUERY_TOURS = gql`
     tourPackages {
       _id
       name
-      url
       description
       adultPrice
       childPrice
@@ -57,7 +56,6 @@ export const QUERY_TOUR = gql`
     tourPackages(id: $id) {
       _id
       name
-      url
       description
       adultPrice
       childPrice
