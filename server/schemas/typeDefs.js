@@ -6,6 +6,27 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    reviews: [Review]
+  }
+
+  type TourPackage {
+    _id: ID
+    name: String
+    description: String
+    adultPrice: Int
+    childPrice: Int
+    duration: Int
+    departureTimes: String
+
+  }
+
+  type Review {
+    _id: ID
+    user_id: ID!
+    tour_id: ID!
+    comment: String!
+    rating: Int
+
   }
 
   type Auth {
@@ -17,6 +38,8 @@ const typeDefs = gql`
     users: [User]
     user(id: ID!): User
     me: User
+    tourReviews(tour_id: ID!): [Review]
+    tourPackages(_id: ID!): TourPackage
   }
 
   type Mutation {
