@@ -16,7 +16,9 @@ const TourPackages = () => {
     }
     return <longDescription></longDescription>;
   };
-
+  const renderTourPage = () => {
+    return 
+  }
   return (
     <>
       {tourList.map((tour) => {
@@ -37,9 +39,7 @@ const TourPackages = () => {
               {/* renderShowMore in database has descriptionSummary and descriptionComplete  */}
               {tour.description}
               {renderShowMore()}
-              <Link onClick={() => setShowMore((prev) => !prev)}>
-                show more...
-              </Link>
+             
               <ul>
               <li>Adult Price: ${tour.adultPrice}</li>
               <li>Child Price: ${tour.childPrice}</li>
@@ -48,7 +48,10 @@ const TourPackages = () => {
               </ul>
             </CardText>
             <CardActions border>
-              <Button colored>View Updates</Button>
+              <Button colored>View Updates
+              <Link to={`/tour/${tour._id}`}>
+                show more...
+              </Link></Button>
             </CardActions>
           </Card>
         );
