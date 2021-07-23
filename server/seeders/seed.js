@@ -6,9 +6,10 @@ const reviewSeeds = require('./reviewSeeds.json');
 
 db.once('open', async () => {
   try {
-    await TourPackage.create(tourSeeds);
-   
     await User.deleteMany({});
+    await Review.deleteMany({});
+    await TourPackage.deleteMany({});
+    await TourPackage.create(tourSeeds);
     await User.create(userSeeds);
     await Review.create(reviewSeeds);
   } catch (err) {

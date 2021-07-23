@@ -12,6 +12,7 @@ const typeDefs = gql`
   type TourPackage {
     _id: ID
     name: String
+    url: String
     description: String
     adultPrice: Int
     childPrice: Int
