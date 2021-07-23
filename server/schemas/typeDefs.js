@@ -22,8 +22,8 @@ const typeDefs = gql`
 
   type Review {
     _id: ID
-    user_id: ID!
-    tour_id: ID!
+    user_id: ID
+    tour_id: ID
     comment: String!
     rating: Int
 
@@ -38,8 +38,9 @@ const typeDefs = gql`
     users: [User]
     user(id: ID!): User
     me: User
-    tourReviews(tour_id: ID!): [Review]
-    tourPackages(_id: ID!): TourPackage
+    tourReviews(tour_id: ID): [Review]
+    tourPackages: [TourPackage]
+    tourPackage(_id: ID!): TourPackage
   }
 
   type Mutation {

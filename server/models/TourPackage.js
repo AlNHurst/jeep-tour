@@ -2,12 +2,12 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const tourSchema = new Schema({
-  _id: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-  },
+//   _id: {
+//     type: String,
+//     required: true,
+//     unique: true,
+//     trim: true,
+//   },
   name: String,
   description: String,
   adultPrice: Number,
