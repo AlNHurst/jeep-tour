@@ -6,6 +6,11 @@ export const QUERY_USERS = gql`
       _id
       username
       email
+      reviews {
+        _id
+        comment
+        rating
+      }
     }
   }
 `;
@@ -29,3 +34,17 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_TOUR = gql`
+  query tourPackages($id: ID!) {
+    tourPackages(id: $id) {
+      _id
+      name
+      description
+      adultPrice
+      childPrice
+      duration
+      departureTimes
+    }
+
+  }`;
