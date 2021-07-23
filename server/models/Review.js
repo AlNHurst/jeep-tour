@@ -4,12 +4,12 @@ const bcrypt = require("bcrypt");
 // author: { type: Schema.Types.ObjectId, ref: 'Person' },
 
 const reviewSchema = new Schema({
-  _id: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-  },
+//   _id: {
+//     type: String,
+//     required: true,
+//     unique: true,
+//     trim: true,
+//   },
   user_id: {
     type: Schema.Types.ObjectId,
     ref: 'User',

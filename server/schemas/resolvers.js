@@ -17,10 +17,13 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     tourReviews: async (_, args) => {
-      return Review.find({ tour_id: args.id });
+      return Review.find({ tour_id: args.tour_id }).populate("tourPackages");
     },
-    tourPackages: async (_,args) => {
+    tourPackage: async (_,args) => {
       return TourPackage.findOne({ _id: args.id });
+    },
+    tourPackages: async () =>{
+      return TourPackage.find();
     }
     
   },
