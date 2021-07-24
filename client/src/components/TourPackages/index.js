@@ -1,61 +1,44 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/client";
-import { Button, Card, CardText, CardTitle, CardActions } from "react-mdl";
+import { useQuery } from "@apollo/client";
 import { QUERY_TOURS } from "../../utils/queries";
 
 const TourPackages = () => {
-  const [showMore, setShowMore] = useState(true);
-  const { data } = useQuery(QUERY_TOURS);
+  const { loading, error, data } = useQuery(QUERY_TOURS);
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
 
   const tourList = data?.tourPackages || [];
 
-  const renderShowMore = () => {
-    if (showMore) {
-      return <shortDescription></shortDescription>;
-    }
-    return <longDescription></longDescription>;
-  };
-  const renderTourPage = () => {
-    return 
-  }
   return (
     <>
-      {tourList.map((tour) => {
-        return (
-          <Card
-            shadow={0}
-            style={{ width: "320px", height: "320px", margin: "auto" }}
-          >
-            <CardTitle
-              expand
-              style={{
-                color: "#fff",
-                background:
-                  "url(http://www.getmdl.io/assets/demos/dog.png) bottom right 15% no-repeat #46B6AC",
-              }}
-            >{tour.name}</CardTitle>
-            <CardText>
-              {/* renderShowMore in database has descriptionSummary and descriptionComplete  */}
-              {tour.description}
-              {renderShowMore()}
-             
-              <ul>
-              <li>Adult Price: ${tour.adultPrice}</li>
-              <li>Child Price: ${tour.childPrice}</li>
-              <li>Duration: {tour.duration} hours</li>
-              <li>Departure Time: {tour.departureTime}</li>
-              </ul>
-            </CardText>
-            <CardActions border>
-              <Button colored>View Updates
-              <Link to={`/tour/${tour._id}`}>
-                show more...
-              </Link></Button>
-            </CardActions>
-          </Card>
-        );
-      })}
+      {tourList.map(tour => (
+        <>
+          <div className="card">
+            <div className="card-header has-background-white">
+              <div className="card-header-title is-centered">
+                <strong>{tour.name}</strong>
+              </div>
+            </div>
+            <div className="card-image">
+              <figure className="image is-128x128">
+                <img src="http://www.getmdl.io/assets/demos/dog.png" alt="Tour Package" />
+              </figure>
+            </div>
+            <div className="card-content">
+              <p>{tour.description}</p>
+            </div>
+            <div className="card-footer">
+              <button colored>View Updates
+                <Link to={`/tourpackage/${tour._id}`}>
+                  show more...
+                </Link>
+              </button>
+            </div>
+          </div>
+        </>
+      )
+      )};
     </>
   );
 };

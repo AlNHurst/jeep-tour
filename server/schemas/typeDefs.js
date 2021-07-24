@@ -18,16 +18,13 @@ const typeDefs = gql`
     childPrice: Int
     duration: Int
     departureTimes: String
-
   }
 
   type Review {
     _id: ID
     user_id: ID
-    tour_id: ID
     comment: String!
     rating: Int
-
   }
 
   type Auth {
@@ -39,9 +36,9 @@ const typeDefs = gql`
     users: [User]
     user(id: ID!): User
     me: User
-    tourReviews(tour_id: ID): [Review]
+    tourReviews: [Review]
     tourPackages: [TourPackage]
-    tourPackage(_id: ID!): TourPackage
+    tourPackage(id: ID!): TourPackage
   }
 
   type Mutation {

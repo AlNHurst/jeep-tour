@@ -1,21 +1,21 @@
 [
     {
       "user_id": "60faea21b859664f1c02d508",
-      "tour_id": "60fae91ac41008683c402a01",
+      "tour_id": "60fb96b0f3e27352a89b2a8a",
       "comment": "This is amazing!",
       "rating": 4
     
     },
     {
         "user_id": "60faea21b859664f1c02d508",
-        "tour_id": "60fb07abebd2a610e0ecd99b",
+        "tour_id": "60fb96b0f3e27352a89b2a8b",
         "comment": "Great company!",
         "rating": 5
       
       },
       {
         "user_id": "60faea21b859664f1c02d508",
-        "tour_id": "60fb07abebd2a610e0ecd99c",
+        "tour_id": "60fb96b0f3e27352a89b2a8c",
         "comment": "Best tour ever",
         "rating": 5
       

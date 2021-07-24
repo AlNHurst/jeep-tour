@@ -12,8 +12,7 @@ export const QUERY_USERS = gql`
         rating
       }
     }
-  }
-`;
+  }`;
 
 export const QUERY_USER = gql`
   query user($id: ID!) {
@@ -22,8 +21,7 @@ export const QUERY_USER = gql`
       username
       email
     }
-  }
-`;
+  }`;
 
 export const QUERY_ME = gql`
   query me {
@@ -32,8 +30,7 @@ export const QUERY_ME = gql`
       username
       email
     }
-  }
-`;
+  }`;
 
 
 export const QUERY_TOURS = gql`
@@ -47,13 +44,11 @@ export const QUERY_TOURS = gql`
       duration
       departureTimes
     }
-
-  }
-`;
+  }`;
 
 export const QUERY_TOUR = gql`
-  query tourPackages($id: ID!) {
-    tourPackages(id: $id) {
+  query tourPackage($id: ID!) {
+    tourPackage(id: $id) {
       _id
       name
       description
@@ -62,17 +57,14 @@ export const QUERY_TOUR = gql`
       duration
       departureTimes
     }
-
   }`;
 
 export const QUERY_REVIEWS = gql`
-  query tourReviews($tour_id: ID!) {
-    tourReviews(tour_id: $tour_id) {
+  query tourReviews {
+    tourReviews {
       _id
       user_id
-      tour_id
       comment
       rating  
     }
-
   }`;

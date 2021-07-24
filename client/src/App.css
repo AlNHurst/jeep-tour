@@ -1,0 +1,14 @@
+.navbar .navbar-brand {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  font-size: 32px;
+}

@@ -16,16 +16,15 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    tourReviews: async (_, args) => {
-      return Review.find({ tour_id: args.tour_id }).populate("tourPackages");
+    tourReviews: async () => {
+      return Review.find();
     },
-    tourPackage: async (_,args) => {
-      return TourPackage.findOne({ _id: args.id });
-    },
-    tourPackages: async () =>{
+    tourPackages: async () => {
       return TourPackage.find();
-    }
-    
+    },
+    tourPackage: async (_, args) => {
+      return TourPackage.findOne({ _id: args.id });
+    }    
   },
 
   Mutation: {
