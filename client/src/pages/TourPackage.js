@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import ReservationForm from '../components/ReservationForm';
+import Payment from '../components/Payment';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+
 import Calendar from 'react-calendar';
 // import 'react-calendar/dist/Calendar.css';
 
@@ -89,7 +92,6 @@ const TourPackage = () => {
                       <input type="text" placeholder="Email address" className="input" name="email" required />
                     </div>
                   </div>
-
                   <div className="field">
                     <button
                       className="button is-dark"
@@ -97,14 +99,11 @@ const TourPackage = () => {
                       Complete and Pay
                     </button>
                   </div>
-
                 </form>
+                <Payment></Payment>
               </div>
             </div>
           </div>
-
-
-
 
           <Calendar
             activeStartDate={selectionDate}

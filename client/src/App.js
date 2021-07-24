@@ -8,6 +8,8 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 import Home from './pages/Home';
 import Signup from './pages/Signup';
@@ -16,6 +18,11 @@ import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import TourPackage from './pages/TourPackage';
+import Payment from './components/Payment';
+
+
+// stripe promise
+const stripePromise = loadStripe('pk_test_51JGnh7DEEk2RiGSYfn0k0rI7DQBnnGaZHdJn0JQEOg1ed4scJaWl9sKA1vsitOL0ly42farkhEjSMyT7xvoL7k9s00RMkS6hcM');
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -45,17 +52,19 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-          <div className="">
-            <Header />
-          </div>
-          <div className="container">
-            <Route exact path="/">
-              <Home />
-            </Route>
+        <div className="">
+          <Header />
+        </div>
+        <div className="container">
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Elements stripe={stripePromise}>
             <Route exact path="/tourpackage/:tourId">
               <TourPackage />
             </Route>
-          </div>
+          </Elements>
+        </div>
         <div>
           <Footer />
         </div>
