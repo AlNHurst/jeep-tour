@@ -1,5 +1,6 @@
 // Node Modules
 import React from 'react';
+import Reviews from '../components/Reviews';
 // Utilities
 // Components
 import TourPackages from '../components/TourPackages';
@@ -14,6 +15,10 @@ const Home = () => {
         >
           <TourPackages>
           </TourPackages>
+        </div>
+        <div>
+        <Reviews>   
+        </Reviews>
         </div>
       </div>
     </main>

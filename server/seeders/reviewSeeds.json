@@ -1,0 +1,24 @@
+[
+    {
+      "user_id": "60faea21b859664f1c02d508",
+      "tour_id": "60fae91ac41008683c402a01",
+      "comment": "This is amazing!",
+      "rating": 4
+    
+    },
+    {
+        "user_id": "60faea21b859664f1c02d508",
+        "tour_id": "60fb07abebd2a610e0ecd99b",
+        "comment": "Great company!",
+        "rating": 5
+      
+      },
+      {
+        "user_id": "60faea21b859664f1c02d508",
+        "tour_id": "60fb07abebd2a610e0ecd99c",
+        "comment": "Best tour ever",
+        "rating": 5
+      
+      }
+  
+  ]

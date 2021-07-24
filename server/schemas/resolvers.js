@@ -1,6 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const { User } = require('../models');
+const { User, TourPackage, Review } = require('../models');
 
 const resolvers = {
   Query: {
@@ -16,6 +16,16 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    tourReviews: async (_, args) => {
+      return Review.find({ tour_id: args.tour_id }).populate("tourPackages");
+    },
+    tourPackage: async (_,args) => {
+      return TourPackage.findOne({ _id: args.id });
+    },
+    tourPackages: async () =>{
+      return TourPackage.find();
+    }
+    
   },
 
   Mutation: {

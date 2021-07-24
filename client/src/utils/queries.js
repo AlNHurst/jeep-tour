@@ -6,6 +6,11 @@ export const QUERY_USERS = gql`
       _id
       username
       email
+      reviews {
+        _id
+        comment
+        rating
+      }
     }
   }
 `;
@@ -29,3 +34,45 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+
+export const QUERY_TOURS = gql`
+  query tourPackages {
+    tourPackages {
+      _id
+      name
+      description
+      adultPrice
+      childPrice
+      duration
+      departureTimes
+    }
+
+  }
+`;
+
+export const QUERY_TOUR = gql`
+  query tourPackages($id: ID!) {
+    tourPackages(id: $id) {
+      _id
+      name
+      description
+      adultPrice
+      childPrice
+      duration
+      departureTimes
+    }
+
+  }`;
+
+export const QUERY_REVIEWS = gql`
+  query tourReviews($tour_id: ID!) {
+    tourReviews(tour_id: $tour_id) {
+      _id
+      user_id
+      tour_id
+      comment
+      rating  
+    }
+
+  }`;
