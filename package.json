@@ -18,6 +18,5 @@
   },
   "dependencies": {
     "graphql": "^15.5.1",
-    "react-mdl": "^2.1.0"
   }
 }

@@ -4,6 +4,7 @@ import Login from '../../pages/Login';
 import Signup from '../../pages/Signup';
 
 import Auth from '../../utils/auth';
+import NavBar from '../NavBar/NavBar';
 
 
 const Header = () => {
@@ -18,12 +19,14 @@ const Header = () => {
     if (Auth.loggedIn()) {
       return (
         <>
-          <Link className="btn btn-lg btn-info m-2" to="/me">
-            {Auth.getProfile().data.username}'s profile
-          </Link>
-          <button className="btn btn-lg btn-light m-2" onClick={logout}>
-            Logout
-          </button>
+          <div>
+            <Link className="btn btn-lg btn-info m-2" to="/me">
+              {Auth.getProfile().data.username}'s profile
+            </Link>
+            <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              Logout
+            </button>
+          </div>
         </>
       );
     }
@@ -41,35 +44,35 @@ const Header = () => {
     return (
       <>
         {renderLoginSignOut()}
-
-        <Link onClick={() => setShowLogin((prev) => !prev)}>SignUp</Link>
-
-        {/* <Link className="btn btn-lg btn-info m-2" to="/login">
-          Login
-        </Link>
-        <Link className="btn btn-lg btn-light m-2" to="/signup">
-          Signup
-        </Link> */}
+        <p>If you do not have an account, click
+          <Link onClick={() => setShowLogin((prev) => !prev)}> here </Link>to signup</p>
       </>
     )
   };
 
   return (
-    <header className="bg-dark text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
-          <h1>
-            Tour the Aruba Island
-          </h1>
-          <Link className="text-light" to="/">
+    <>
+      <section>
+        <div className="container">
+          {/* NavBar component */}
+          <NavBar></NavBar>
+        </div>
+      </section>
+
+      <section className="hero is-primary">
+        <div className="hero-body">
+          <div>
+            <h1 className="title">
+              Tour the Aruba Island
+            </h1>
             <img src="https://res.cloudinary.com/dije62fvf/image/upload/v1626977579/Aruba/aruba-img_hoxtet.jpg" alt="Aruba island" />
-          </Link>
+          </div>
+          <div>
+            {renderControls()}
+          </div>
         </div>
-        <div>
-          {renderControls()}
-        </div>
-      </div>
-    </header>
+      </section>
+    </>
   );
 };
 
