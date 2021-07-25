@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
-import Modal from 'react-modal';
-import ReservationForm from '../components/ReservationForm';
+import Modal from 'react-bootstrap/Modal'
 import Payment from '../components/Payment';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import ProductItem from '../components/ProductItem';
 
-import Calendar from 'react-calendar';
-// import 'react-calendar/dist/Calendar.css';
+// import Calendar from 'react-calendar';
 
 // Import the `useParams()` hook
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { QUERY_TOUR } from '../utils/queries';
-
-Modal.setAppElement('#root');
 
 const TourPackage = () => {
   // query tour by id and show details on page
@@ -36,10 +32,10 @@ const TourPackage = () => {
   }
 
   // calendar component function within modal 
-  const [selectionDate, setSelectionDate] = useState(new Date());
-  const dateChange = selectionDate => {
-    setSelectionDate(selectionDate);
-  }
+  // const [selectionDate, setSelectionDate] = useState(new Date());
+  // const dateChange = selectionDate => {
+  //   setSelectionDate(selectionDate);
+  // }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -59,6 +55,7 @@ const TourPackage = () => {
           Make Reservation
         </button>
       </div>
+      <ProductItem></ProductItem>
 
       {/* Reservation Modal */}
       <Modal
@@ -105,12 +102,12 @@ const TourPackage = () => {
             </div>
           </div>
 
-          <Calendar
+          {/* <Calendar
             activeStartDate={selectionDate}
             onChange={dateChange}
             value={selectionDate}
           >
-          </Calendar>
+          </Calendar> */}
         </div>
       </Modal>
     </>

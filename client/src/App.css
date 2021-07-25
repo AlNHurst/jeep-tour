@@ -1,14 +1,8 @@
-.navbar .navbar-brand {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+* {
+  box-sizing: border-box;
 }
 
-.hero-body {
-  display: flex;
-  justify-content: space-around;
-}
-
-.title {
-  font-size: 32px;
+body {
+  background: #ececec;
+  font-family: "Open Sans", sans-serif;
 }
