@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     password: String
     reviews: [Review]
+    orders: [Order]
   }
 
   type TourPackage {
@@ -32,18 +33,42 @@ const typeDefs = gql`
     user: User
   }
 
+  type Product {
+    _id: ID
+    name: String
+    price: Float
+    tourPackage: TourPackage
+  }
+
+  type Order {
+    _id: ID
+    purchaseDate: String
+    products: [Product]
+  }
+
+  type Checkout {
+    session: ID
+  }
+
   type Query {
     users: [User]
     user(id: ID!): User
     me: User
     tourReviews: [Review]
     tourPackages: [TourPackage]
+    products: [Product]
+    product(id: ID!): Product
+    order(_id: ID!): Order
+    orders: [Order]
     tourPackage(id: ID!): TourPackage
+    checkout(products: [ID]!): Checkout
+    getProducts(tourPackage: ID): [Product]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addOrder(products: [ID]!): Order
   }
 `;
 

@@ -1,6 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const { User, TourPackage, Review } = require('../models');
+const { User, TourPackage, Review, Product, Order } = require('../models');
 
 const resolvers = {
   Query: {
@@ -16,6 +16,22 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    getProducts: async (parent, { tourPackage }) => {
+      const params = {};
+      if (tourPackage) {
+        params.tourPackage = tourPackage;
+      }
+      return await Product.find(params).populate('tourPackage');
+    },
+    products: async () => {
+      return Product.find();
+    },
+    // getproducts: async (_, args) => {
+    //   return Product.find({ _id: args.tourPackage }).populate('tourPackage');
+    // },
+    product: async (_, args) => {
+      return Product.findOne({ _id: args.id }).populate('tourPackage');
+    },
     tourReviews: async () => {
       return Review.find();
     },
@@ -24,7 +40,19 @@ const resolvers = {
     },
     tourPackage: async (_, args) => {
       return TourPackage.findOne({ _id: args.id });
-    }    
+    },
+    orders: async () => {
+      return Order.find();
+    },
+    order: async (_, args, context) => {
+      if (context.user) {
+        const user = await User.findOne(context.user._id).populate({
+          path: 'orders.products',
+        });
+        return user.orders.id(_id);
+      }
+      throw new AuthenticationError('Not logged in');
+    }
   },
 
   Mutation: {
@@ -32,6 +60,18 @@ const resolvers = {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
+    },
+    addOrder: async (parent, { products }, context) => {
+      console.log(context);
+      if (context.user) {
+        const order = new Order({ products });
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+
+        return order;
+      }
+
+      throw new AuthenticationError('Not logged in');
     },
     login: async (_, { email, password }) => {
       const user = await User.findOne({ email });
@@ -49,7 +89,7 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
+    },
   }
 };
 

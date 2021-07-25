@@ -43,7 +43,7 @@ const Login = (props) => {
     <main>
       <div>
         <div className="">
-          <h4 className="">Login to Make Reservations</h4>
+          <h4 className="">Login to Post Reviews!</h4>
           <div className="card-body">
             {data ? (
               <p>

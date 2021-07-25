@@ -1,15 +1,20 @@
 const db = require('../config/connection');
-const { User, TourPackage, Review} = require('../models');
+const { User, TourPackage, Review, Product, Order} = require('../models');
 const userSeeds = require('./userSeeds.json');
 const tourSeeds = require('./tourSeeds.json');
 const reviewSeeds = require('./reviewSeeds.json');
+const productSeeds = require('./productSeeds.json');
+
+
 
 db.once('open', async () => {
   try {
     await User.deleteMany({});
     await Review.deleteMany({});
     await TourPackage.deleteMany({});
+    await Product.deleteMany({});
     await TourPackage.create(tourSeeds);
+    await Product.create(productSeeds);
     await User.create(userSeeds);
     await Review.create(reviewSeeds);
   } catch (err) {

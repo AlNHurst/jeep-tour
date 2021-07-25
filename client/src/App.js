@@ -12,13 +12,15 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
 import Home from './pages/Home';
+import Navbar from './components/Navbar'
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
-import Header from './components/Header';
+import Hero from './components/Hero';
 import Footer from './components/Footer';
 import TourPackage from './pages/TourPackage';
 import Payment from './components/Payment';
+
 
 
 // stripe promise
@@ -51,24 +53,19 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div className="">
-          <Header />
-        </div>
-        <div className="container">
+      <Elements stripe={stripePromise}>
+        <Router>
+          <Navbar></Navbar>
+          <Hero />
           <Route exact path="/">
             <Home />
           </Route>
-          <Elements stripe={stripePromise}>
-            <Route exact path="/tourpackage/:tourId">
-              <TourPackage />
-            </Route>
-          </Elements>
-        </div>
-        <div>
+          <Route exact path="/tourpackage/:tourId">
+            <TourPackage />
+          </Route>
           <Footer />
-        </div>
-      </Router>
+        </Router>
+      </Elements>
     </ApolloProvider >
   );
 }

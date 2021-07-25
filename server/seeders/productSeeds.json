@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Northern, Adult",
+    "price": 75,
+    "tourPackage": "60fb96b0f3e27352a89b2a8a" 
+  },
+  {
+    "name": "Northern, Child",
+    "price": 45,
+    "tourPackage": "60fb96b0f3e27352a89b2a8a"
+  },
+  {
+    "name": "Southern, Adult",
+    "price": 75,
+    "tourPackage": "60fb96b0f3e27352a89b2a8b" 
+  },
+  {
+    "name": "Southern, Child",
+    "price": 45,
+    "tourPackage": "60fb96b0f3e27352a89b2a8b"
+  },
+  {
+    "name": "Eastern, Adult",
+    "price": 55,
+    "tourPackage": "60fb96b0f3e27352a89b2a8c" 
+  },
+  {
+    "name": "Eastern, Child",
+    "price": 35,
+    "tourPackage": "60fb96b0f3e27352a89b2a8c"
+  }  
+]

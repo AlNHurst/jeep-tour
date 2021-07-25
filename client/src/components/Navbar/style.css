@@ -1,0 +1,29 @@
+.navbar {
+  background: white;
+  padding: 16px 16px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.nav-links {
+  color: rgba(20, 20, 20, 0.932);
+  list-style-type: none;
+  text-decoration: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.nav-link {
+  color: grey;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: all 0.3s linear;
+}
+
+.nav-link:hover {
+  color: rgba(133, 30, 30, 0.829);
+}
+
+
+

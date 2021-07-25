@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Login from '../../pages/Login';
 import Signup from '../../pages/Signup';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
 import Auth from '../../utils/auth';
-import NavBar from '../NavBar/NavBar';
-
 
 const Header = () => {
   const [showLogin, setShowLogin] = useState(true);
@@ -52,26 +51,10 @@ const Header = () => {
 
   return (
     <>
-      <section>
-        <div className="container">
-          {/* NavBar component */}
-          <NavBar></NavBar>
-        </div>
-      </section>
-
-      <section className="hero is-primary">
-        <div className="hero-body">
-          <div>
-            <h1 className="title">
-              Tour the Aruba Island
-            </h1>
-            <img src="https://res.cloudinary.com/dije62fvf/image/upload/v1626977579/Aruba/aruba-img_hoxtet.jpg" alt="Aruba island" />
-          </div>
-          <div>
-            {renderControls()}
-          </div>
-        </div>
-      </section>
+      
+      <div>
+        {renderControls()}
+      </div>
     </>
   );
 };

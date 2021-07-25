@@ -1,22 +1,16 @@
-// Node Modules
 import React from 'react';
-// Utilities
+
 // Components
-import TourPackages from '../components/TourPackages';
+// import ProductList from '../components/ProductList';
+import ReservationForm from '../components/ReservationForm';
 import TourReviews from '../components/TourReviews';
 
 const Home = () => {
   return (
     <main>
-      <div>
-        <section>
-          <TourPackages>
-          </TourPackages>
-        </section>
-        <div>
-        <TourReviews></TourReviews>
-        </div>
-      </div>
+          <ReservationForm />
+        <TourReviews />
+
     </main>
   );
 };
