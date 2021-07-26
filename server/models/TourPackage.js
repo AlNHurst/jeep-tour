@@ -6,11 +6,19 @@ const tourSchema = new Schema({
   url: String,
   shortDescription: String,
   longDescription: String,
-  destinations: String,
+  destinations: [
+    {
+      type: String,
+    },
+  ],
   adultPrice: Number,
   childPrice: Number,
   duration: Number,
-  departureTimes: String,
+  departureTimes: [
+    {
+      type: String,
+    },
+  ],
   reviews: [
     {
       comment: {
