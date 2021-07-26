@@ -85,7 +85,9 @@ export const QUERY_TOURS = gql`
     tourPackages {
       _id
       name
-      description
+      url
+      shortDescription
+      longDescription
       adultPrice
       childPrice
       duration
