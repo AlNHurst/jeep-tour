@@ -16,9 +16,9 @@ import Navbar from './components/Navbar'
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
-import Hero from './components/Hero';
+import Hero from './components/HomeHero';
 import Footer from './components/Footer';
-import TourPackage from './pages/TourPackage';
+import SingleTour from './pages/SingleTour';
 import Payment from './components/Payment';
 
 
@@ -56,12 +56,11 @@ function App() {
       <Elements stripe={stripePromise}>
         <Router>
           <Navbar></Navbar>
-          <Hero />
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/tourpackage/:tourId">
-            <TourPackage />
+          <Route exact path="/singletour/:tourId">
+            <SingleTour />
           </Route>
           <Footer />
         </Router>

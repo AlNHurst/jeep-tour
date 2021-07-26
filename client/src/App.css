@@ -1,8 +1,27 @@
+:root {
+  --primary-white: #fff;
+  --primary-green: #2b6d2bb6;
+  --primary-dark: rgba(255, 255, 255, 0);
+  --primary-red: #dc3545;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background: #ececec;
   font-family: "Open Sans", sans-serif;
+  background-image: url('../src/beach-catus-img.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+/* Single Tour Styling */
+.singletour-container {
+  color: white;
+  padding: 16px;
+  margin: 0;
+  background-color: rgba(76, 175, 80, 0.5);
 }

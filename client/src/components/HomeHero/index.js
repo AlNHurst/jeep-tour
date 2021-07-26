@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Login from '../../pages/Login';
 import Signup from '../../pages/Signup';
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import island from '../../aruba-img.jpg';
+import './style.css';
 
 import Auth from '../../utils/auth';
+import { Card } from 'react-bootstrap';
 
-const Header = () => {
+const HomeHero = () => {
   const [showLogin, setShowLogin] = useState(true);
   const logout = (event) => {
     event.preventDefault();
@@ -51,12 +53,27 @@ const Header = () => {
 
   return (
     <>
-      
-      <div>
-        {renderControls()}
+      <div className="jumbotron">
+        <div className="container">
+          <div className="hero-wrapper">
+            <div className="row">
+              <div className="col-lg-7 col-xm-12">
+                <h2 className="hero-heading">Aruba Jeep Tours</h2>
+                <img src={island} alt="aruba island" style={{ height:'375px' }} />
+              </div>
+              <div className="col-lg-4 col-xm-12">
+                <Card>
+                  <Card.Body>
+                {renderControls()}
+                  </Card.Body>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
 };
 
-export default Header;
+export default HomeHero;
