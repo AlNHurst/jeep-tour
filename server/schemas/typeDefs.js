@@ -16,7 +16,7 @@ const typeDefs = gql`
     url: String
     shortDescription: String
     longDescription: String
-    destinations: String
+    destinations: [String]
     adultPrice: Int
     childPrice: Int
     duration: Int
