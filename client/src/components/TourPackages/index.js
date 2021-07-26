@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_TOURS } from "../../utils/queries";
 
-import { Card, Button } from 'react-bootstrap';
-
-import tourImage from '../../beach-catus-img.jpg';
-import ProductList from "../ProductList";
+import { Card } from 'react-bootstrap';
 
 const TourPackages = () => {
   const { loading, error, data } = useQuery(QUERY_TOURS);
@@ -15,6 +12,7 @@ const TourPackages = () => {
   if (error) return `Error! ${error.message}`;
 
   const tourList = data?.tourPackages || [];
+  console.log(tourList);
 
   return (
     <>
@@ -30,7 +28,7 @@ const TourPackages = () => {
                       {tour.name}
                     </Card.Title>
                     <Card.Text>
-                      Description: {tour.description}
+                      Description: {tour.shortDescription}
                       <p>{tour._id}</p>
                     </Card.Text>
                   </Card.Body>
