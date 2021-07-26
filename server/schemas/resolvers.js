@@ -16,12 +16,9 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    getProducts: async (parent, { tourPackage }) => {
-      const params = {};
-      if (tourPackage) {
-        params.tourPackage = tourPackage;
-      }
-      return await Product.find(params).populate('tourPackage');
+    getProducts: async (parent, args) => {
+      
+      return await Product.find(args).populate('tourPackage');
     },
     products: async () => {
       return Product.find();
