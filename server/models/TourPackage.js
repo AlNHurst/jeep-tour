@@ -3,7 +3,9 @@ const bcrypt = require("bcrypt");
 
 const tourSchema = new Schema({
   name: String,
-  description: String,
+  url: String,
+  shortDescription: String,
+  longDescription: String,
   adultPrice: Number,
   childPrice: Number,
   duration: Number,
