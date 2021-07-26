@@ -14,7 +14,8 @@ const typeDefs = gql`
     _id: ID
     name: String
     url: String
-    description: String
+    shortDescription: String
+    longDescription: String
     adultPrice: Int
     childPrice: Int
     duration: Int
