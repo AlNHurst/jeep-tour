@@ -7,6 +7,7 @@ import { QUERY_TOURS } from "../../utils/queries";
 import { Card, Button } from 'react-bootstrap';
 
 import tourImage from '../../beach-catus-img.jpg';
+import ProductList from "../ProductList";
 
 const TourPackages = () => {
   const { loading, error, data } = useQuery(QUERY_TOURS);
@@ -31,8 +32,6 @@ const TourPackages = () => {
                     <Card.Text>
                       Description: {tour.description}
                       <p>{tour._id}</p>
-                      <Link to={`/singletour/${tour._id}`}>click here
-                    </Link>
                     </Card.Text>
                   </Card.Body>
                     <Link to={`/singletour/${tour._id}`}>

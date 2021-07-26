@@ -4,8 +4,9 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink,
+  createHttpLink
 } from '@apollo/client';
+import { StoreProvider } from './utils/GlobalState';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Elements } from '@stripe/react-stripe-js';
@@ -20,6 +21,7 @@ import Hero from './components/HomeHero';
 import Footer from './components/Footer';
 import SingleTour from './pages/SingleTour';
 import Payment from './components/Payment';
+import ProductList from './components/ProductList';
 
 
 
@@ -52,20 +54,25 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Elements stripe={stripePromise}>
-        <Router>
-          <Navbar></Navbar>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/singletour/:tourId">
-            <SingleTour />
-          </Route>
-          <Footer />
-        </Router>
-      </Elements>
-    </ApolloProvider >
+    <StoreProvider>
+      <ApolloProvider client={client}>
+        <Elements stripe={stripePromise}>
+          <Router>
+            <Navbar></Navbar>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/singletour/:tourId">
+              <SingleTour />
+            </Route>
+            <Route exact path="/productlist">
+              <ProductList />
+            </Route>
+            <Footer />
+          </Router>
+        </Elements>
+      </ApolloProvider >
+    </StoreProvider>
   );
 }
 

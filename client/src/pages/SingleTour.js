@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { QUERY_TOUR } from '../utils/queries';
+import ProductList from '../components/ProductList';
 
 const SingleTour = () => {
   // query tour by id and show details on page
@@ -35,6 +36,7 @@ const SingleTour = () => {
           <li>Child Price: ${tour.childPrice}</li>
         </ul>
         <button>
+          <ProductList />
           Make Reservation
         </button>
       </div>
