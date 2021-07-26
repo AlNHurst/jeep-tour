@@ -21,6 +21,7 @@ export const QUERY_PRODUCTS = gql`
       name
       price
       tourPackage {
+        _id
         name
       }
     }
@@ -34,6 +35,7 @@ export const QUERY_PRODUCT = gql`
       name
       price
       tourPackage {
+        _id
         name
       }
     }
@@ -41,12 +43,13 @@ export const QUERY_PRODUCT = gql`
 `;
 
 export const QUERY_ALL_PRODUCTS = gql`
-  {
+  query products {
     products {
       _id
       name
       price
       tourPackage {
+        _id
         name
       }
     }
@@ -101,7 +104,10 @@ export const QUERY_TOUR = gql`
     tourPackage(id: $id) {
       _id
       name
-      description
+      url
+      destinations
+      shortDescription
+      longDescription
       adultPrice
       childPrice
       duration

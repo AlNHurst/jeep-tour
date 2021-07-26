@@ -14,13 +14,8 @@ import { loadStripe } from '@stripe/stripe-js';
 
 import Home from './pages/Home';
 import Navbar from './components/Navbar'
-import Signup from './pages/Signup';
-import Login from './pages/Login';
-import Profile from './pages/Profile';
-import Hero from './components/HomeHero';
 import Footer from './components/Footer';
 import SingleTour from './pages/SingleTour';
-import Payment from './components/Payment';
 import ProductList from './components/ProductList';
 
 

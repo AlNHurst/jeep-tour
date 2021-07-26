@@ -17,9 +17,7 @@ const NavBar = () => {
        <li>
         <a className="nav-link" href="/">Leave A Review</a>
        </li>
-       <li>
-        <a className="nav-link" href="/">Cart</a>
-       </li>
+      
      </ul>
     </nav>
   )
