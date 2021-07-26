@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import Cart from '../components/Cart';
 import HomeHero from '../components/HomeHero';
 import ReviewForm from '../components/ReviewForm';
 
@@ -15,6 +16,7 @@ const Home = () => {
         <TourPackages />
         <TourReviews />
         <ReviewForm />
+        <Cart />
     </main>
   );
 };

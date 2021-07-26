@@ -12,18 +12,22 @@ const ProductList = () => {
   const [state, dispatch] = useStoreContext();
 
   const { tourId } = useParams();
+
+  console.log(tourId);
+
   const { loading, data } = useQuery(QUERY_PRODUCTS, {
-    variables: { id: tourId },
+    variables: { tourPackage: tourId },
   });
+  console.log(data?.getProducts);
 
   useEffect(() => {
-    if (data?.products) {
+    if (data?.getProducts) {
       dispatch({
         type: UPDATE_PRODUCTS,
-        products: data.products,
+        products: data.getProducts,
       });
-      console.log(data.products);
-      data.products.forEach((product) => {
+      console.log(data.getProducts);
+      data.getProducts.forEach((product) => {
         idbPromise('products', 'put', product);
       });
     } else if (!loading) {

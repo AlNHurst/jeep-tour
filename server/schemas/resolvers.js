@@ -16,9 +16,12 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    getProducts: async (parent, args) => {
-      
-      return await Product.find(args).populate('tourPackage');
+    getProducts: async (parent, { tourPackage }) => {
+      const params = {};
+      if(tourPackage) {
+        params.tourPackage = tourPackage;
+      }
+      return await Product.find(params);
     },
     products: async () => {
       return Product.find();
@@ -27,7 +30,7 @@ const resolvers = {
     //   return Product.find({ _id: args.tourPackage }).populate('tourPackage');
     // },
     product: async (_, args) => {
-      return Product.findOne({ _id: args.id }).populate('tourPackage');
+      return Product.findOne({ _id: args.id });
     },
     tourReviews: async () => {
       return Review.find();
