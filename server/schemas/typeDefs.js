@@ -20,7 +20,7 @@ const typeDefs = gql`
     adultPrice: Int
     childPrice: Int
     duration: Int
-    departureTimes: String
+    departureTimes: [String]
   }
 
   type Review {

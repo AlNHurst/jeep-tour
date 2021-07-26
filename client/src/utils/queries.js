@@ -86,6 +86,7 @@ export const QUERY_TOURS = gql`
       _id
       name
       url
+      destinations
       shortDescription
       longDescription
       adultPrice

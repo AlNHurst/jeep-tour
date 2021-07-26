@@ -30,7 +30,7 @@ const SingleTour = () => {
         <h3>{tour.name}</h3>
         <p>{tour.description}</p>
         <ul>
-          <li>Departure Time: {tour.departureTime}</li>
+          <li>Departure Time: {tour.departureTimes}</li>
           <li>Duration: {tour.duration} hours</li>
           <li>Adult Price: ${tour.adultPrice}</li>
           <li>Child Price: ${tour.childPrice}</li>

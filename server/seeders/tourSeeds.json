@@ -8,7 +8,7 @@
     "adultPrice": 75,
     "childPrice": 45,
     "duration": 4,
-    "departureTimes": "8:30 a.m."
+    "departureTimes": ["8:30 a.m.", "2:00 p.m."]
   },
   {
     "name": "Southern Escape",
@@ -19,7 +19,7 @@
     "adultPrice": 75,
     "childPrice": 45,
     "duration": 4,
-    "departureTimes": "8:30 a.m."
+    "departureTimes": ["8:30 a.m.", "2:00 p.m."]
   },
   {
     "name": "Eastern Escape",
@@ -30,6 +30,6 @@
     "adultPrice": 55,
     "childPrice": 35,
     "duration": 3,
-    "departureTimes": "9:00 a.m."
+    "departureTimes": ["8:30 a.m.", "2:00 p.m."]
   }
 ]
