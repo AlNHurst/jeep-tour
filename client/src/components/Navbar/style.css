@@ -1,5 +1,5 @@
 .navbar {
-  background: white;
+  /* background: white; */
   padding: 16px 16px;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -17,7 +17,7 @@
   color: grey;
   text-transform: capitalize;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 20px;
   transition: all 0.3s linear;
 }
 

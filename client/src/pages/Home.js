@@ -1,16 +1,20 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import HomeHero from '../components/HomeHero';
+import ReviewForm from '../components/ReviewForm';
 
 // Components
 // import ProductList from '../components/ProductList';
-import ReservationForm from '../components/ReservationForm';
+import TourPackages from '../components/TourPackages';
 import TourReviews from '../components/TourReviews';
 
 const Home = () => {
   return (
     <main>
-          <ReservationForm />
+      <HomeHero/>
+        <TourPackages />
         <TourReviews />
-
+        <ReviewForm />
     </main>
   );
 };

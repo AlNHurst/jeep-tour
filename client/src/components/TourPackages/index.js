@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_TOURS } from "../../utils/queries";
 
+import { Card, Button } from 'react-bootstrap';
+
+import tourImage from '../../beach-catus-img.jpg';
+
 const TourPackages = () => {
   const { loading, error, data } = useQuery(QUERY_TOURS);
   if (loading) return 'Loading...';
@@ -13,29 +17,36 @@ const TourPackages = () => {
 
   return (
     <>
-      {tourList.map(tour => (
-        <>
-          <article>
-            <div className="img-container">
-              <img width="200" src="http://www.getmdl.io/assets/demos/dog.png" alt="Tour Package" />
-            </div>
-          </article>
-          <div className="tourPackage-info">
-            <h4><strong>{tour.name}</strong></h4>
-            <h5>{tour.description}<span><i className="fas fa-caret-squar-down" /></span></h5>
-            <p>more description {tour.moreDescription}</p>
-          </div>
-
-          <div className="card-footer">
-            <button colored>View Updates
-              <Link to={`/tourpackage/${tour._id}`}>
-                show more...
-              </Link>
-            </button>
-          </div>
-        </>
-      ))}
+      <div className="tourPackages-container">
+        <div className="row " style={{ padding: '16px' }}>
+          {tourList.map(tour => (
+            <>
+              <div className="col-lg-4 col-xm-12 px-5">
+                <Card style={{ width: '18rem', paddingTop: '16px' }}>
+                  <Card.Img style={{ width: '16rem' }} src="http://www.getmdl.io/assets/demos/dog.png" />
+                  <Card.Body>
+                    <Card.Title>
+                      {tour.name}
+                    </Card.Title>
+                    <Card.Text>
+                      Description: {tour.description}
+                      <p>{tour._id}</p>
+                      <Link to={`/singletour/${tour._id}`}>click here
+                    </Link>
+                    </Card.Text>
+                  </Card.Body>
+                    <Link to={`/singletour/${tour._id}`}>
+                  <button>View Details and Book
+                  </button>
+                    </Link>
+                </Card>
+              </div>
+            </>
+          ))}
+        </div>
+      </div>
     </>
-  )}
+  )
+}
 
-      export default TourPackages;
+export default TourPackages;

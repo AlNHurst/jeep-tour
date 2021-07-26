@@ -1,0 +1,6 @@
+.tourPackages-container {
+  /* background-image: url('../../beach-catus-img.jpg'); */
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
