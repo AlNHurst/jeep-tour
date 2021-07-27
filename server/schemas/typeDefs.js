@@ -21,6 +21,7 @@ const typeDefs = gql`
     childPrice: Int
     duration: Int
     departureTimes: [String]
+    orders: [Order]
   }
 
   type Review {
@@ -34,6 +35,8 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+
+
 
   type Product {
     _id: ID

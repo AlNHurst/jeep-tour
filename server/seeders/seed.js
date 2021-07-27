@@ -1,6 +1,5 @@
 const db = require('../config/connection');
 const { User, TourPackage, Review, Product, Order} = require('../models');
-const userSeeds = require('./userSeeds.json');
 const tourSeeds = require('./tourSeeds.json');
 const reviewSeeds = require('./reviewSeeds.json');
 const productSeeds = require('./productSeeds.json');
@@ -85,10 +84,32 @@ db.once('open', async () => {
       ]
     );
     
-    await User.deleteMany({});
     await Review.deleteMany({});
-    await User.create(userSeeds);
     await Review.create(reviewSeeds);
+    
+    await User.deleteMany({});
+
+    await User.create({
+      firstName: 'Pamela',
+      lastName: 'Washington',
+      email: 'pamela@testmail.com',
+      password: 'password12345',
+      orders: [
+        {
+          products: [products[0]._id, products[0]._id, products[1]._id]
+        }
+      ]
+    });
+  
+    await User.create({
+      firstName: 'Elijah',
+      lastName: 'Holt',
+      email: 'eholt@testmail.com',
+      password: 'password12345'
+    });
+  
+    console.log('users seeded');
+
   } catch (err) {
     console.error(err);
     process.exit(1);

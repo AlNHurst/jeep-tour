@@ -9,8 +9,13 @@ import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 
+
+
+
+=======
 const stripePromise = loadStripe('pk_test_51JGnh7DEEk2RiGSYfn0k0rI7DQBnnGaZHdJn0JQEOg1ed4scJaWl9sKA1vsitOL0ly42farkhEjSMyT7xvoL7k9s00RMkS6hcM');
 console.log(stripePromise);
+
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
