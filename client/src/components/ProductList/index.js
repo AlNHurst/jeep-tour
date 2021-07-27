@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import ProductItem from '../ProductItem';
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
@@ -14,12 +14,12 @@ const ProductList = () => {
 
   const { tourId } = useParams();
 
-  console.log(tourId);
+
 
   const { loading, data } = useQuery(QUERY_PRODUCTS, {
     variables: { tourPackage: tourId },
   });
-  console.log(data?.getProducts);
+  
 
   useEffect(() => {
     if (data?.getProducts) {
@@ -27,7 +27,7 @@ const ProductList = () => {
         type: UPDATE_PRODUCTS,
         products: data.getProducts,
       });
-      console.log(data.getProducts);
+      
       data.getProducts.forEach((product) => {
         idbPromise('products', 'put', product);
       });

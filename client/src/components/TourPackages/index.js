@@ -12,7 +12,7 @@ const TourPackages = () => {
   if (error) return `Error! ${error.message}`;
 
   const tourList = data?.tourPackages || [];
-  console.log(tourList);
+
 
   return (
     <>
@@ -22,7 +22,7 @@ const TourPackages = () => {
             <>
               <div className="col-lg-4 col-xm-12 px-5">
                 <Card style={{ width: '18rem', paddingTop: '16px' }}>
-                  <Card.Img style={{ width: '16rem' }} src="http://www.getmdl.io/assets/demos/dog.png" />
+                  <Card.Img style={{ width: '16rem' }} src={tour.url} />
                   <Card.Body>
                     <Card.Title>
                       {tour.name}

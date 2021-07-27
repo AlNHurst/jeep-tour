@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 const { User, TourPackage, Review, Product, Order } = require('../models');
+const stripe = require('stripe')('sk_test_51JGnh7DEEk2RiGSYOZxdqtBKovu1NX2wB2xoC72HiJ5JxPvP8OUvT49EWUIghnbcp0xZ0eKPq6EnpedVnkbvQ4Hx00yfqVTJCO');
 
 const resolvers = {
   Query: {
@@ -26,9 +27,7 @@ const resolvers = {
     products: async () => {
       return Product.find();
     },
-    // getproducts: async (_, args) => {
-    //   return Product.find({ _id: args.tourPackage }).populate('tourPackage');
-    // },
+    
     product: async (_, args) => {
       return Product.findOne({ _id: args.id });
     },
@@ -62,9 +61,9 @@ const resolvers = {
 
       for (let i = 0; i < products.length; i++) {
         const product = await stripe.products.create({
+          
           name: products[i].name,
-          description: products[i].description,
-          images: [`${url}/images/${products[i].image}`]
+
         });
 
         const price = await stripe.prices.create({

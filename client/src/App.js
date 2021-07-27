@@ -17,11 +17,12 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import SingleTour from './pages/SingleTour';
 import ProductList from './components/ProductList';
+import Success from './pages/Success';
 
 
 
 // stripe promise
-const stripePromise = loadStripe('pk_test_51JGnh7DEEk2RiGSYfn0k0rI7DQBnnGaZHdJn0JQEOg1ed4scJaWl9sKA1vsitOL0ly42farkhEjSMyT7xvoL7k9s00RMkS6hcM');
+const stripePromise = loadStripe('sk_test_51JGnh7DEEk2RiGSYOZxdqtBKovu1NX2wB2xoC72HiJ5JxPvP8OUvT49EWUIghnbcp0xZ0eKPq6EnpedVnkbvQ4Hx00yfqVTJCO');
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -63,6 +64,7 @@ function App() {
             <Route exact path="/productlist">
               <ProductList />
             </Route>
+            <Route exact path="/success" component={Success} />
             <Footer />
           </Router>
         </Elements>
