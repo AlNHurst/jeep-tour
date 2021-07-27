@@ -8,6 +8,7 @@ const typeDefs = gql`
     password: String
     reviews: [Review]
     orders: [Order]
+    products: [Product]
   }
 
   type TourPackage {
