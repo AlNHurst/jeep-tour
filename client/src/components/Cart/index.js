@@ -9,19 +9,23 @@ import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 
-const stripePromise = loadStripe('sk_test_51JGnh7DEEk2RiGSYOZxdqtBKovu1NX2wB2xoC72HiJ5JxPvP8OUvT49EWUIghnbcp0xZ0eKPq6EnpedVnkbvQ4Hx00yfqVTJCO');
+const stripePromise = loadStripe('pk_test_51JGnh7DEEk2RiGSYfn0k0rI7DQBnnGaZHdJn0JQEOg1ed4scJaWl9sKA1vsitOL0ly42farkhEjSMyT7xvoL7k9s00RMkS6hcM');
+console.log(stripePromise);
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+  console.log(data);
 
   useEffect(() => {
-    if (data) {
+    if (data?.checkout?.session) {
       stripePromise.then((res) => {
+        console.log('res-23', res);
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
   }, [data]);
+  console.log('data-26', data);
 
   useEffect(() => {
     async function getCart() {
@@ -48,6 +52,7 @@ const Cart = () => {
 
   function submitCheckout() {
     const productIds = [];
+    console.log('product-id', productIds);
 
     state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
@@ -55,26 +60,17 @@ const Cart = () => {
       }
     });
 
+    // Before getCheckout executes, run a submitHandler for the form input submission
+
     getCheckout({
       variables: { products: productIds },
     });
   }
 
-  // if (!state.cartOpen) {
-  //   return (
-  //     <div className="cart-closed" onClick={toggleCart}>
-  //       <span role="img" aria-label="trash">
-  //         🛒
-  //       </span>
-  //     </div>
-  //   );
-  // }
+
 
   return (
     <div className="cart">
-      {/* <div className="close" onClick={toggleCart}>
-        [close]
-      </div> */}
       <h2>Shopping Cart</h2>
       {state.cart.length ? (
         <div>
@@ -94,7 +90,7 @@ const Cart = () => {
         </div>
       ) : (
         <p>
-          Your cart is empty! Please click "Add to cart" to add tickets to your reservation. 
+          Your cart is empty! Please click "Add to cart" to add tickets to your reservation.
         </p>
       )}
     </div>
