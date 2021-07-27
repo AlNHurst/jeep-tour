@@ -71,13 +71,13 @@ export const reducer = (state, action) => {
     case UPDATE_TOURPACKAGE:
       return {
         ...state,
-        categories: [...action.categories],
+        tourPackages: [...action.tourPackages],
       };
 
     case UPDATE_CURRENT_TOURPACKAGE:
       return {
         ...state,
-        currentCategory: action.currentCategory
+        currentTourPackage: action.currentTourPackage,
       }
 
     default:
