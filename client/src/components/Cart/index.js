@@ -6,14 +6,15 @@ import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const stripePromise = loadStripe('pk_test_51JGnh7DEEk2RiGSYfn0k0rI7DQBnnGaZHdJn0JQEOg1ed4scJaWl9sKA1vsitOL0ly42farkhEjSMyT7xvoL7k9s00RMkS6hcM');
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+  console.log('data', data);
 
   useEffect(() => {
     if (data) {
@@ -34,9 +35,9 @@ const Cart = () => {
     }
   }, [state.cart.length, dispatch]);
 
-  function toggleCart() {
-    dispatch({ type: TOGGLE_CART });
-  }
+  // function toggleCart() {
+  //   dispatch({ type: TOGGLE_CART });
+  // }
 
   function calculateTotal() {
     let sum = 0;
@@ -60,21 +61,21 @@ const Cart = () => {
     });
   }
 
-  if (!state.cartOpen) {
-    return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
-        </span>
-      </div>
-    );
-  }
+  // if (!state.cartOpen) {
+  //   return (
+  //     <div className="cart-closed" onClick={toggleCart}>
+  //       <span role="img" aria-label="trash">
+  //         🛒
+  //       </span>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="cart">
-      <div className="close" onClick={toggleCart}>
+      {/* <div className="close" onClick={toggleCart}>
         [close]
-      </div>
+      </div> */}
       <h2>Shopping Cart</h2>
       {state.cart.length ? (
         <div>
@@ -93,12 +94,9 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
-          You haven't added anything to your cart yet!
-        </h3>
+        <p>
+          Your cart is empty! Please click "Add to cart" to add tickets to your reservation. 
+        </p>
       )}
     </div>
   );
