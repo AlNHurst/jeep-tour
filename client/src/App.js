@@ -17,6 +17,7 @@ import ProductList from './components/ProductList';
 import Success from './pages/Success';
 import Header from './components/Header';
 import HomeHero from './components/HomeHero';
+import OrderHistory from './pages/OrderHistory';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -68,6 +69,7 @@ function App() {
                 <ProductList />
               </Route>
               <Route exact path="/success" component={Success} />
+              <Route exact path="/orderHistory" component={OrderHistory} />
             </div>
             <div className="footer">
               <Footer />

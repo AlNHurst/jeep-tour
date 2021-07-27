@@ -65,7 +65,7 @@ const Login = (props) => {
               <input type="password" placeholder="*******" name="password" required value={formState.password} onChange={handleChange} />
 
               <button type="submit">
-                Submit
+                Login
               </button>
             </form>
           )}

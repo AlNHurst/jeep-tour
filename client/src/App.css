@@ -11,7 +11,8 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background-image: url('../src/beach-catus-img.jpg');
+  background-color: grey;
+  /* background-image: url('../src/beach-catus-img.jpg'); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

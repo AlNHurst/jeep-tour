@@ -48,11 +48,11 @@ const Signup = () => {
               </p>
             ) : (
               <form className="form-inline" onSubmit={handleFormSubmit}>
-                {/* <label for="username"><span className="icon is-small">
+                <label for="username"><span className="icon is-small">
                   <i className="fa fa-user">
                   </i>
                 </span> Username: </label>
-                <input type="text" placeholder="Enter username" name="username" required value={formState.name} onChange={handleChange} /> */}
+                <input type="text" placeholder="Enter username" name="username" required value={formState.name} onChange={handleChange} />
 
                 <label for="email"><span className="icon is-small">
                   <i className="fa fa-envelope">
@@ -67,7 +67,7 @@ const Signup = () => {
                 <input type="password" placeholder="*******" name="password" required value={formState.password} onChange={handleChange} />
 
                 <button type="submit">
-                  Submit
+                  Sign Up
                 </button>
               </form>
 
