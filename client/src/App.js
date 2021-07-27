@@ -9,20 +9,14 @@ import {
 import { StoreProvider } from './utils/GlobalState';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 
 import Home from './pages/Home';
-import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 import SingleTour from './pages/SingleTour';
 import ProductList from './components/ProductList';
 import Success from './pages/Success';
-
-
-
-// stripe promise
-const stripePromise = loadStripe('sk_test_51JGnh7DEEk2RiGSYOZxdqtBKovu1NX2wB2xoC72HiJ5JxPvP8OUvT49EWUIghnbcp0xZ0eKPq6EnpedVnkbvQ4Hx00yfqVTJCO');
+import Header from './components/Header';
+import HomeHero from './components/HomeHero';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -52,22 +46,34 @@ function App() {
   return (
     <StoreProvider>
       <ApolloProvider client={client}>
-        <Elements stripe={stripePromise}>
-          <Router>
-            <Navbar></Navbar>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/singletour/:tourId">
-              <SingleTour />
-            </Route>
-            <Route exact path="/productlist">
-              <ProductList />
-            </Route>
-            <Route exact path="/success" component={Success} />
-            <Footer />
-          </Router>
-        </Elements>
+        <Router>
+          <div className="grid-container">
+            <div className="header">
+              <Header />
+            </div>
+            {/* <div className="navbar">
+              <Navbar />
+            </div> */}
+            <div className="hero">
+              <HomeHero />
+            </div>
+            <div className="content">
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/singletour/:tourId">
+                <SingleTour />
+              </Route>
+              <Route exact path="/productlist">
+                <ProductList />
+              </Route>
+              <Route exact path="/success" component={Success} />
+            </div>
+            <div className="footer">
+              <Footer />
+            </div>
+          </div>
+        </Router>
       </ApolloProvider >
     </StoreProvider>
   );

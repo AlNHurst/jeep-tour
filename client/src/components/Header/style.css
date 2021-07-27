@@ -1,0 +1,13 @@
+/* .header-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  box-sizing: border-box;
+}
+
+.logo {
+  grid-column: 1 / 2;
+}
+.login {
+  grid-column: 7 / -1;
+} */
+
