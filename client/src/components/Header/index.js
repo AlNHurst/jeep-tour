@@ -64,6 +64,11 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul className="navbar-nav">
+              <li className="mx-1">
+                <Link to="/orderHistory">
+                  Order History
+                </Link>
+              </li>
               <li className="nav-item">
                 Home
               </li>
@@ -75,7 +80,7 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <div> 
+          <div>
             {renderControls()}</div>
         </Container>
       </nav>

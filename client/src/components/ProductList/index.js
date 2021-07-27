@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import { useParams } from 'react-router-dom';
-import Cart from '../Cart';
+import CartItem from '../Cart';
 
 
 const ProductList = () => {
@@ -115,7 +115,7 @@ const ProductList = () => {
           )
         }
       </div>
-      <Cart />
+      <CartItem />
 
       <button>
         Make Reservation

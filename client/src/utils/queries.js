@@ -124,3 +124,27 @@ export const QUERY_REVIEWS = gql`
       rating  
     }
   }`;
+
+  export const Query_ORDERS = gql`
+  query orders {
+    orders {
+      _id  
+      purchaseDate
+      products {
+        _id
+        name
+      }
+    }
+  }`;
+
+  export const Query_ORDER= gql`
+  query order($id: ID!)  {
+    orders(id: $id) {
+      _id  
+      purchaseDate
+      products {
+        _id
+        name
+      }
+    }
+  }`;

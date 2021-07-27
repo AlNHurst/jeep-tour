@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_TOUR } from '../utils/queries';
 import ProductList from '../components/ProductList';
-import Cart from '../components/Cart';
+import CartItem from '../components/Cart';
 
 const SingleTour = () => {
   // query tour by id and show details on page
@@ -64,7 +64,7 @@ const SingleTour = () => {
         </button>
       </div>
       <div>
-        <Cart />
+        <CartItem />
       </div>
     </>
   );

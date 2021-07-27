@@ -14,38 +14,32 @@ import './style.css';
 
 =======
 const stripePromise = loadStripe('pk_test_51JGnh7DEEk2RiGSYfn0k0rI7DQBnnGaZHdJn0JQEOg1ed4scJaWl9sKA1vsitOL0ly42farkhEjSMyT7xvoL7k9s00RMkS6hcM');
-console.log(stripePromise);
 
 
-const Cart = () => {
+const CartItems = () => {
+
   const [state, dispatch] = useStoreContext();
+  console.log('state.cart', state.cart);
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-  console.log(data);
 
   useEffect(() => {
     if (data?.checkout?.session) {
       stripePromise.then((res) => {
-        console.log('res-23', res);
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
   }, [data]);
-  console.log('data-26', data);
 
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     }
-
+    console.log('state.cart.length', state.cart.length);
     if (!state.cart.length) {
       getCart();
     }
   }, [state.cart.length, dispatch]);
-
-  // function toggleCart() {
-  //   dispatch({ type: TOGGLE_CART });
-  // }
 
   function calculateTotal() {
     let sum = 0;
@@ -57,7 +51,6 @@ const Cart = () => {
 
   function submitCheckout() {
     const productIds = [];
-    console.log('product-id', productIds);
 
     state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
@@ -102,4 +95,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartItems;
