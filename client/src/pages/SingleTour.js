@@ -21,9 +21,6 @@ const SingleTour = () => {
     return <div>Loading...</div>;
   }
 
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
   return (
     <>
       {/* Jumbotron Section */}

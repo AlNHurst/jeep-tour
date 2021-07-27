@@ -12,7 +12,7 @@ const Signup = () => {
     email: '',
     password: '',
   });
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [addUser, { data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -41,69 +41,45 @@ const Signup = () => {
     <main>
       <div>
         <div className="">
-          <h4 className="">Sign Up</h4>
-          <div className="card-body">
             {data ? (
               <p>
                 Success! You may now head{' '}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form className="box" onSubmit={handleFormSubmit}>
-                <div className="field">
-                  <label
-                    className="label">Username <span className="icon is-small">
-                      <i className="fa fa-user">
-                      </i>
-                    </span></label>
-                  <div className="control">
-                    <input type="text" placeholder="Username" className="input" name="username" value={formState.name}
-                      onChange={handleChange} />
-                  </div>
-                </div>
-              
-                <div className="field">
-                  <label
-                    className="label">Email <span className="icon is-small">
-                      <i className="fa fa-envelope">
-                      </i>
-                    </span></label>
-                  <div className="control">
-                    <input type="email" placeholder="email@email.com" className="input" name="email" value={formState.email}
-                      onChange={handleChange} />
-                  </div>
-                </div>
+              <form className="form-inline" onSubmit={handleFormSubmit}>
+                {/* <label for="username"><span className="icon is-small">
+                  <i className="fa fa-user">
+                  </i>
+                </span> Username: </label>
+                <input type="text" placeholder="Enter username" name="username" required value={formState.name} onChange={handleChange} /> */}
 
-                <div className="field">
-                  <label
-                    className="label">Password <span className="icon is-small">
-                      <i className="fa fa-lock">
-                      </i>
-                    </span></label>
-                  <div className="control">
-                    <input type="password" placeholder="******" className="input" name="password" value={formState.password}
-                      onChange={handleChange} />
-                  </div>
-                </div>
+                <label for="email"><span className="icon is-small">
+                  <i className="fa fa-envelope">
+                  </i>
+                </span> Email: </label>
+                <input type="email" placeholder="Enter email" name="email" required value={formState.email} onChange={handleChange} />
 
-                 <div className="field">
-                  <button
-                    className="button is-dark"
-                    type="submit">
-                    Submit
-                  </button>
-                </div>
+                <label for="pwd"><span className="icon is-small">
+                  <i className="fa fa-lock">
+                  </i>
+                </span> Password: </label>
+                <input type="password" placeholder="*******" name="password" required value={formState.password} onChange={handleChange} />
+
+                <button type="submit">
+                  Submit
+                </button>
               </form>
+
             )}
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+            {/* {error && (
+              <div className="bg-danger text-white">
                 {error.message}
               </div>
-            )}
+            )} */}
           </div>
         </div>
-      </div>
     </main>
   );
 };

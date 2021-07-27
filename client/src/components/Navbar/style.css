@@ -1,16 +1,12 @@
-.navbar {
-  /* background: white; */
-  padding: 16px 16px;
-  display: grid;
-  grid-template-columns: auto 1fr;
+/* .navbar-container {
+  background: white;
 }
 
 .nav-links {
+  display: flex;
   color: rgba(20, 20, 20, 0.932);
   list-style-type: none;
   text-decoration: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .nav-link {
@@ -23,7 +19,8 @@
 
 .nav-link:hover {
   color: rgba(133, 30, 30, 0.829);
-}
+} */
 
+/* Navbar Styling */
 
 

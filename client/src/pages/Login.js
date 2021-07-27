@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import { FormGroup } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { data }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -43,56 +44,36 @@ const Login = (props) => {
     <main>
       <div>
         <div className="">
-          <h4 className="">Login to Post Reviews!</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form className="box" onSubmit={handleFormSubmit}>
-                <div className="field">
-                  <label
-                    className="label">Email <span className="icon is-small">
-                      <i className="fa fa-envelope">
-                      </i>
-                    </span></label>
-                  <div className="control">
-                    <input type="email" placeholder="email@email.com" className="input" name="email" value={formState.email}
-                      onChange={handleChange} />
-                  </div>
-                </div>
+          {data ? (
+            <p>
+              Success! You may now head{' '}
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <form className="form-inline" onSubmit={handleFormSubmit}>
+              <FormGroup>
+                <label for="email"><span className="icon is-small">
+                  <i className="fa fa-envelope">
+                  </i>
+                </span> Email: </label>
+                <input type="email" placeholder="Enter email" name="email" required value={formState.email} onChange={handleChange} />
+              </FormGroup>
+              <label for="pwd"><span className="icon is-small">
+                <i className="fa fa-lock">
+                </i>
+              </span> Password: </label>
+              <input type="password" placeholder="*******" name="password" required value={formState.password} onChange={handleChange} />
 
-                <div className="field">
-                  <label
-                    className="label">Password <span className="icon is-small">
-                      <i className="fa fa-lock">
-                      </i>
-                    </span></label>
-                  <div className="control">
-                    <input type="password" placeholder="******" className="input" name="password" value={formState.password}
-                      onChange={handleChange} />
-                  </div>
-                </div>
-                
-                <div className="field">
-                  <button
-                    className="button is-dark"
-                    type="submit">
-                    Submit
-                  </button>
-                </div>
-              </form>
-              
-            )}
-
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
-          </div>
+              <button type="submit">
+                Submit
+              </button>
+            </form>
+          )}
+          {/* {error && (
+            <div className="my-3 p-3 bg-danger text-white">
+              {error.message}
+            </div>
+          )} */}
         </div>
       </div>
     </main >
