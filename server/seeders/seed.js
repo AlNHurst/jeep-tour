@@ -49,7 +49,7 @@ db.once('open', async () => {
     
     await Product.deleteMany({});
 
-    const productSeeds = await Product.insertMany(
+    const products = await Product.insertMany(
       [
         {
           "name": "Northern, Adult",
@@ -90,8 +90,7 @@ db.once('open', async () => {
     await User.deleteMany({});
 
     await User.create({
-      firstName: 'Pamela',
-      lastName: 'Washington',
+      username: "Pam Holt",
       email: 'pamela@testmail.com',
       password: 'password12345',
       orders: [
@@ -102,8 +101,7 @@ db.once('open', async () => {
     });
   
     await User.create({
-      firstName: 'Elijah',
-      lastName: 'Holt',
+     username: "elijah",
       email: 'eholt@testmail.com',
       password: 'password12345'
     });

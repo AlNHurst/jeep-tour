@@ -6,11 +6,14 @@ export const QUERY_USERS = gql`
       _id
       username
       email
-      reviews {
+      orders {
         _id
-        comment
-        rating
-      }
+          purchaseDat}
+        products {
+          _id
+          name     
+          price
+        }
     }
   }`;
 
@@ -70,6 +73,14 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      orders {
+        _id
+        purchaseDate}
+        products {
+          _id
+          name     
+          price
+        }
     }
   }`;
 
