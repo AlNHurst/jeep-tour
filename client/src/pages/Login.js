@@ -50,6 +50,7 @@ const Login = (props) => {
               <Link to="/">back to the homepage.</Link>
             </p>
           ) : (
+
             <div className="text-left">
               <Card>
                 <Card.Body>
@@ -75,6 +76,7 @@ const Login = (props) => {
                   </form>
                 </Card.Body>
               </Card>
+
 
             </div>
           )}

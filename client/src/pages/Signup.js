@@ -42,6 +42,7 @@ const Signup = () => {
     <main>
       <div>
         <div className="">
+
           {data ? (
             <p>
               Success! You may now head{' '}
@@ -67,6 +68,7 @@ const Signup = () => {
                         </span> Email </label>
                         <input className="form-control" type="email" placeholder="Enter email" name="email" required="required" value={formState.email} onChange={handleChange} />
                       </div>
+
 
                       <div>
                         <label className="form-label" for="pwd"><span className="icon is-small">

@@ -18,7 +18,7 @@ An app designed to find, reserve, and pay for tour packages for jeep tours in Ar
 ```
 ## Deployed Website
 
-https://western-nc-trail-app.herokuapp.com/
+https://shielded-dusk-02329.herokuapp.com/
 
 
 ## Description
