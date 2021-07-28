@@ -1,34 +1,78 @@
-import React from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithubSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import "./style.css";
 
 const Footer = () => {
-  const location = useLocation();
-  const history = useHistory();
   return (
-    <footer className="w-100 mt-auto p-4">
-      <div className="container text-center mb-5">
-        {location.pathname !== '/' && (
-          <button
-            className="btn btn-dark mb-3"
-            onClick={() => history.goBack()}
+    <div>
+      <div className="footer pt-5">
+        <div className="p-1 size-md">
+          <h4>Alexandra Hurst</h4>
+          <a
+            href="https://www.linkedin.com/in/alexandra-hurst-28b185130"
+            target="_blank"
+            alt="linkedIn"
+            rel="noreferrer"
           >
-            &larr; Go Back
-          </button>
-        )}
-        <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              size="4x"
+              style={{ color: "white" }}
+              className="icon"
+            />
+          </a>
+          <a
+            href="https://github.com/AlNHurst"
+            target="_blank"
+            alt="github"
+            rel="noreferrer"
           >
-            ❤️
-          </span>{' '}
-          by the Good Times team.
-        </h4>
+            <FontAwesomeIcon
+              icon={faGithubSquare}
+              size="4x"
+              style={{ color: "white" }}
+              className="icon"
+            />
+          </a>
+        </div>
       </div>
-    </footer>
+      <div className="footer pt-5">
+        <div className="p-1 size-md">
+          <h4>Jess Greene</h4>
+
+          <a
+            href="https://www.linkedin.com/in/jess-greene-241139211/"
+            target="_blank"
+            alt="linkedIn"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              size="4x"
+              style={{ color: "white" }}
+              className="icon"
+            />
+          </a>
+          <a
+            href="https://github.com/jessgreene9"
+            target="_blank"
+            alt="github"
+            rel="noreferrer"
+          >
+            <FontAwesomeIcon
+              icon={faGithubSquare}
+              size="4x"
+              style={{ color: "white" }}
+              className="icon"
+            />
+          </a>
+        </div>
+      </div>
+      <span className="copy">
+        &copy; 2021 Alexandra Hurst & Jess Greene
+      </span>
+    </div>
   );
 };
 
