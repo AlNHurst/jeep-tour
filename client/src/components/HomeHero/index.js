@@ -8,6 +8,8 @@ import './style.css';
 
 import Login from '../../pages/Login';
 import Signup from '../../pages/Signup';
+import Cart from '../Cart';
+import Jumbotron from '../Jumbotron';
 
 const HomeHero = () => {
   const [showLogin, setShowLogin] = useState(true);
@@ -53,16 +55,12 @@ const HomeHero = () => {
   };
 
   return (
-    <>
-      <div className="jumbotron">
-        <div className="col-sm-6 order-sm-2 offset-sm-1">
-          <div className="">
-            <img src={island} alt="Aruba Island" usemap="#island" />
-          </div>
-          <div className="col-md-4">{renderControls()}</div>
-        </div>
-      </div>
-    </>
+
+    <Jumbotron>
+
+      
+      <div className="col-md-6">{renderControls()}</div>
+    </Jumbotron>
   );
 };
 

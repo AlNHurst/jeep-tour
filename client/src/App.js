@@ -21,6 +21,7 @@ import OrderHistory from './pages/OrderHistory';
 import ReviewForm from './components/ReviewForm';
 import TourReviews from './components/TourReviews';
 import About from './pages/About';
+import Cart from './components/Cart';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -53,6 +54,7 @@ function App() {
       <ApolloProvider client={client}>
         <Router>
           <div className="grid-areas">
+            <Cart />           
             <NavigationBar className="navigation-grid"/>
             <HomeHero className="homehero-grid" />
 

@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
-import Login from '../../pages/Login';
-import Signup from '../../pages/Signup';
 
 const NavigationBar = () => {
   return (

@@ -4,18 +4,10 @@
 	border-radius: 4px;
 }	
 
-.navbar-container {
-	display: grid;
-	grid-template-columns: repeat(12, 1fr);
-}
-
 .navbar {
 	background: #fff;
 	padding: 8px 8px;
 	border-radius: 10px;
-	grid-column: 1 / -1 ;
-	display: grid;
-	grid-template-columns: repeat(12, 1fr);
 }
 
 .navbar .navbar-brand {

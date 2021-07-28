@@ -42,15 +42,9 @@ const SingleTour = () => {
         </div>
       </div>
 
-      <div className="col-lg-4 col-xm-12">
-        <Card>
-          <Card.Body>
-            <ProductList />
-          </Card.Body>
-        </Card>
-      </div>
 
-      <div className="singletour-container">
+
+      <div className="container row singletour-container mb-4">
         <p>{tour.longDescription}</p>
         <h3>{tour.name}</h3>
         <ul>
@@ -60,13 +54,22 @@ const SingleTour = () => {
           <li>Adult Price: ${tour.adultPrice}</li>
           <li>Child Price: ${tour.childPrice}</li>
         </ul>
-        <ReservationForm />
-        {/* <button>
-          Schedule Reservation
-        </button> */}
       </div>
-      <div>
-        <Cart />
+      <div className="container row">
+        <div className="col-lg-4 col-xm-12">
+          <Card>
+            <Card.Body>
+              <ProductList />
+            </Card.Body>
+          </Card>
+        </div>
+        <div className="col-lg-8 col-xm-12">
+          <Card>
+            <Card.Body>
+              <ReservationForm />
+            </Card.Body>
+          </Card>
+        </div>
       </div>
     </>
   );
