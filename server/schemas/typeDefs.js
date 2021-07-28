@@ -28,8 +28,8 @@ const typeDefs = gql`
 
   type Review {
     _id: ID
-    name: String!
-    comment: String!
+    name: String
+    comment: String
     rating: String
     user: User
   }
@@ -93,7 +93,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addOrder(products: [ID]!): Order
     addReservation(name: String!, phone: String!, email: String!, date: String!, time: String!): Reservation
-    addReview(name: String!, comment: String!, rating: String): Review
+    addReview(name: String, comment: String, rating: String): Review
   }
 `;
 
