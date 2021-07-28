@@ -7,6 +7,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_TOUR } from '../utils/queries';
 import ProductList from '../components/ProductList';
 import CartItem from '../components/Cart';
+import ReservationForm from '../components/ReservationForm';
 
 const SingleTour = () => {
   // query tour by id and show details on page
@@ -59,6 +60,7 @@ const SingleTour = () => {
           <li>Adult Price: ${tour.adultPrice}</li>
           <li>Child Price: ${tour.childPrice}</li>
         </ul>
+        <ReservationForm />
         {/* <button>
           Schedule Reservation
         </button> */}

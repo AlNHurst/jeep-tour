@@ -66,7 +66,8 @@ function App() {
           <Route exact path="/success" component={Success} />
 
           <Route exact path="/orderHistory" component={OrderHistory} />
-          <TourReviews />
+
+          {/* <TourReviews /> */}
           <ReviewForm />
           <Footer />
         </Router>

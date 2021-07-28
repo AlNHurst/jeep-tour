@@ -114,6 +114,13 @@ const resolvers = {
       });
       return reservation;
     },
+    addReview: async (_, { name, comment, rating }) => {
+      const review = await Review.create({
+        name,
+        comment, rating
+      });
+      return review;
+    },
 
     addUser: async (_, { username, email, password }) => {
       const user = await User.create({ username, email, password });

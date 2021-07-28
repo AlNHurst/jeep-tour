@@ -52,7 +52,7 @@ const ReviewForm = () => {
             <input type="textarea" placeholder="Please type your review" name="comment" required value={formState.comment} onChange={handleChange} />
           </Form.Group>
 
-          <Form.Group>
+          {/* <Form.Group>
             <label for="rating">Rating</label>
             <span class="star-rating">
               <input type="radio" name="rating" value="1"><i></i></input>
@@ -61,7 +61,7 @@ const ReviewForm = () => {
               <input type="radio" name="rating" value="4"><i></i></input>
               <input type="radio" name="rating" value="5"><i></i></input>
             </span>
-          </Form.Group>
+          </Form.Group> */}
 
           <button type="submit">
             Submit Your Review

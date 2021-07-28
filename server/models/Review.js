@@ -2,21 +2,21 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const reviewSchema = new Schema({
-  user_id: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-  },
-  tour_id: {
-    type: Schema.Types.ObjectId,
-    ref: 'TourPackage'
+  
+  name: {
+    type: String,
+    required: true,
   },
   comment: {
     type: String,
     required: true,
   },
-  rating: Number
+  rating: String,
+   
+  
+}
 
-});
+);
 
 const Review = model("Review", reviewSchema);
 

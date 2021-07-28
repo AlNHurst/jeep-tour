@@ -56,7 +56,7 @@ const ProductList = () => {
           )
         }
       </div>
-          <ReservationForm />
+     
       {/* <button>
         Make Reservation
       </button> */}
