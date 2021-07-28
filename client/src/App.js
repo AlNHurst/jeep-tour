@@ -18,6 +18,8 @@ import Success from './pages/Success';
 import Header from './components/Header';
 import HomeHero from './components/HomeHero';
 import OrderHistory from './pages/OrderHistory';
+import ReviewForm from './components/ReviewForm';
+import TourReviews from './components/TourReviews';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -64,7 +66,8 @@ function App() {
           <Route exact path="/success" component={Success} />
 
           <Route exact path="/orderHistory" component={OrderHistory} />
-
+          <TourReviews />
+          <ReviewForm />
           <Footer />
         </Router>
       </ApolloProvider >

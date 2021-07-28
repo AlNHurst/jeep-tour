@@ -1,33 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { ADD_REVIEW } from '../../utils/mutations';
+import { Form } from 'react-bootstrap';
 
-class ReviewForm extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+const ReviewForm = () => {
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
+  const [formState, setFormState] = useState({
+    name: '',
+    comment: '',
+    rating: ''
+  });
+  const [addReview, { data }] = useMutation(ADD_REVIEW);
 
-  handleSubmit(event) {
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    return (<h1>Thank you for your review!</h1>)
+
+    try {
+      await addReview({
+        variables: { ...formState },
+      });
+    } catch (e) {
+      console.error(e);
+    }
   }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Review:
-          <textarea onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    );
-  }
+  return (
+    <div className="my-2">
+      {data ? (
+        <p>
+          Thank you for {' '}
+          <Link to="/">your review!</Link>
+        </p>
+      ) : (
+        <form className="form-inline" onSubmit={handleFormSubmit}>
+          <Form.Group>
+            <label for="name">Name: </label>
+            <input type="text" placeholder="Name" name="name" required value={formState.name} onChange={handleChange} />
+          </Form.Group>
+
+          <Form.Group>
+            <label for="comment">Review: </label>
+            <input type="textarea" placeholder="Please type your review" name="comment" required value={formState.comment} onChange={handleChange} />
+          </Form.Group>
+
+          <Form.Group>
+            <label for="rating">Rating</label>
+            <span class="star-rating">
+              <input type="radio" name="rating" value="1"><i></i></input>
+              <input type="radio" name="rating" value="2"><i></i></input>
+              <input type="radio" name="rating" value="3"><i></i></input>
+              <input type="radio" name="rating" value="4"><i></i></input>
+              <input type="radio" name="rating" value="5"><i></i></input>
+            </span>
+          </Form.Group>
+
+          <button type="submit">
+            Submit Your Review
+          </button>
+        </form>
+      )}
+    </div>
+
+  )
 }
 
-export default ReviewForm
+export default ReviewForm;

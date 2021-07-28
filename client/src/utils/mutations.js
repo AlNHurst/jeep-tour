@@ -24,7 +24,6 @@ export const ADD_USER = gql`
   }
 `;
 
-
 export const ADD_ORDER = gql`
   mutation addOrder($products: [ID]!) {
     addOrder(products: $products) {
@@ -57,5 +56,17 @@ export const ADD_RESERVATION = gql`
     }
   
 `;
+
+export const ADD_REVIEW = gql`
+  mutation addReview($name: String!, $comment: String!, $rating: String!) {
+    addReview(name: $name, comment: $comment, rating: $rating) 
+      {
+        _id
+        name
+        comment
+        rating 
+      }
+    }`
+  ;
 
 
