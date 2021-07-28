@@ -12,7 +12,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   background-color: grey;
-  /* background-image: url('../src/beach-catus-img.jpg'); */
+  background-image: url('../src/beach-catus-img.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,4 +25,8 @@ body {
   padding: 16px;
   margin: 0;
   background-color: rgba(76, 175, 80, 0.5);
+}
+
+.grid-areas {
+  width: 100%;
 }

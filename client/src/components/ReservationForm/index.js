@@ -43,7 +43,7 @@ const ReservationForm = () => {
             Success! You may now head <Link to="/">back to the homepage.</Link>
           </p>
         ) : (
-          <form className="form-inline" onSubmit={handleFormSubmit}>
+          <form className="form-inline col-md-4" onSubmit={handleFormSubmit}>
             <Form.Group>
               <label for="name">Full Name: </label>
               <input

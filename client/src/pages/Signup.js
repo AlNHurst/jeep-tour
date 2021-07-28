@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+import { Card } from "react-bootstrap";
 
 import Auth from '../utils/auth';
 
@@ -41,54 +42,56 @@ const Signup = () => {
     <main>
       <div>
         <div className="">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              
-              <div className="login-form">
-              <form>
-                <div className="form-group" onSubmit={handleFormSubmit}>
-                <div className="form-group">
-                    <label for="email"><span className="icon is-small">
-                      <i className="fa fa-user">
-                      </i>
-                    </span> Email </label>
-                    <input class="form-control" type="email" placeholder="Enter email" name="email" required="required" value={formState.email} onChange={handleChange} />
-                  </div>
-                  <div className="form-group">
-                    <label for="email"><span className="icon is-small">
-                      <i className="fa fa-envelope">
-                      </i>
-                    </span> Email </label>
-                    <input class="form-control" type="email" placeholder="Enter email" name="email" required="required" value={formState.email} onChange={handleChange} />
-                  </div>
+          {data ? (
+            <p>
+              Success! You may now head{' '}
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <div className="text-left">
+              <Card>
+                <Card.Body>
+                  <form className="form-group">
+                    <div onSubmit={handleFormSubmit}>
+                    <div>
+                        <label className="form-label" for="email"><span className="icon is-small">
+                          <i className="fa fa-envelope">
+                          </i>
+                        </span> UserName </label>
+                        <input className="form-control" type="username" placeholder="Enter email" name="username" required="required" value={formState.username} onChange={handleChange} />
+                      </div>
+                      <div>
+                        <label className="form-label" for="email"><span className="icon is-small">
+                          <i className="fa fa-envelope">
+                          </i>
+                        </span> Email </label>
+                        <input className="form-control" type="email" placeholder="Enter email" name="email" required="required" value={formState.email} onChange={handleChange} />
+                      </div>
 
-                  <div className="form-group">
-                    <label for="pwd"><span className="icon is-small">
-                      <i className="fa fa-lock">
-                      </i>
-                    </span> Password </label>
-                    <input class="form-control" type="password" placeholder="*******" name="password" required value={formState.password} onChange={handleChange} />
-                  </div>
-                </div>
-                <input type="submit" className="btn btn-primary btn-block" value="Sign Up" />
-              </form>
+                      <div>
+                        <label className="form-label" for="pwd"><span className="icon is-small">
+                          <i className="fa fa-lock">
+                          </i>
+                        </span> Password </label>
+                        <input className="form-control" type="password" placeholder="*******" name="password" required value={formState.password} onChange={handleChange} />
+                      </div>
+                    </div>
+                    <input className="form-control" type="submit" className="btn btn-primary btn-block" value="Login" />
+                  </form>
+                </Card.Body>
+              </Card>
+
             </div>
-
-            )}
-
-            {/* {error && (
-              <div className="bg-danger text-white">
-                {error.message}
-              </div>
-            )} */}
-          </div>
+          )}
+          {/* {error && (
+            <div className="my-3 p-3 bg-danger text-white">
+              {error.message}
+            </div>
+          )} */}
         </div>
-    </main>
+      </div>
+    </main >
   );
 };
 
-export default Signup;
+        export default Signup;

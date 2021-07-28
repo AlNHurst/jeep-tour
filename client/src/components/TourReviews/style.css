@@ -1,5 +1,5 @@
 .carousel-section {
-  height: 600px;
+  min-height: 300px;
 }
 
 .react-multi-carousel-item{
@@ -12,6 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 32px;
 }
 
 .tourReviews-mainbox {
@@ -20,7 +21,7 @@
   height: 300px;
   border-radius: 10px;
   background-color: #282828;
-  box-shadow: 0 30px 30px rgba(0,0,0,0.6);
+  box-shadow: 0 16px 16px rgba(0,0,0,0.6);
   overflow: hidden;
 }
 
