@@ -66,7 +66,8 @@ const ReviewForm = () => {
               onChange={handleChange} />
           </Form.Group>
 
-          <Form.Group value={formState.rating}
+          <Form.Group 
+          value={formState.rating}
             onChange={handleChange}>
             <Form.Label>Rating</Form.Label>
             <input className="star" type="radio" name="rating" value="1" /><i></i>
@@ -74,7 +75,6 @@ const ReviewForm = () => {
             <input className="star" type="radio" name="rating" value="3" /><i></i>
             <input className="star" type="radio" name="rating" value="4" /><i></i>
             <input className="star" type="radio" name="rating" value="5" /><i></i>
-              />
           </Form.Group>
 
           <div className="d-grid gap-2">
