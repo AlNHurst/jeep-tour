@@ -49,14 +49,14 @@ const Signup = () => {
             ) : (
               
               <div className="login-form">
-              <form>
-                <div className="form-group" onSubmit={handleFormSubmit}>
+              <form onSubmit={handleFormSubmit}>
                 <div className="form-group">
-                    <label for="email"><span className="icon is-small">
+                <div className="form-group">
+                    <label for="username"><span className="icon is-small">
                       <i className="fa fa-user">
                       </i>
-                    </span> Email </label>
-                    <input class="form-control" type="email" placeholder="Enter email" name="email" required="required" value={formState.email} onChange={handleChange} />
+                    </span> Username </label>
+                    <input class="form-control" type="text" placeholder="Enter username" name="username" required="required" value={formState.username} onChange={handleChange} />
                   </div>
                   <div className="form-group">
                     <label for="email"><span className="icon is-small">

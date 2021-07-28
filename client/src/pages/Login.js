@@ -50,8 +50,8 @@ const Login = (props) => {
             </p>
           ) : (
             <div>
-              <form>
-                <div className="form-inline" onSubmit={handleFormSubmit}>
+              <form onSubmit={handleFormSubmit}>
+                <div className="form-inline" >
                   <div>
                     <label for="email"><span className="icon is-small">
                       <i className="fa fa-envelope">
