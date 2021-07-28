@@ -8,9 +8,7 @@ const {
   Order,
   Reservation
 } = require("../models");
-const stripe = require("stripe")(
-  "sk_test_51JGnh7DEEk2RiGSYOZxdqtBKovu1NX2wB2xoC72HiJ5JxPvP8OUvT49EWUIghnbcp0xZ0eKPq6EnpedVnkbvQ4Hx00yfqVTJCO"
-);
+const stripe = require("stripe")(process.env.STRIPE_SK);
 
 const resolvers = {
   Query: {

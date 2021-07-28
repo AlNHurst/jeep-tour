@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-import { FormGroup } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
 
@@ -50,25 +49,28 @@ const Login = (props) => {
               <Link to="/">back to the homepage.</Link>
             </p>
           ) : (
-            <form className="form-inline" onSubmit={handleFormSubmit}>
-              <FormGroup>
-                <label for="email"><span className="icon is-small">
-                  <i className="fa fa-envelope">
-                  </i>
-                </span> Email: </label>
-                <input type="email" placeholder="Enter email" name="email" required value={formState.email} onChange={handleChange} />
-              
-              <label for="pwd"><span className="icon is-small">
-                <i className="fa fa-lock">
-                </i>
-              </span> Password: </label>
-              <input type="password" placeholder="*******" name="password" required value={formState.password} onChange={handleChange} />
+            <div>
+              <form>
+                <div className="form-inline" onSubmit={handleFormSubmit}>
+                  <div>
+                    <label for="email"><span className="icon is-small">
+                      <i className="fa fa-envelope">
+                      </i>
+                    </span> Email </label>
+                    <input type="email" placeholder="Enter email" name="email" required="required" value={formState.email} onChange={handleChange} />
+                  </div>
 
-              <button type="submit">
-                Login
-              </button>
-              </FormGroup>
-            </form>
+                  <div>
+                    <label for="pwd"><span className="icon is-small">
+                      <i className="fa fa-lock">
+                      </i>
+                    </span> Password </label>
+                    <input type="password" placeholder="*******" name="password" required value={formState.password} onChange={handleChange} />
+                  </div>
+                </div>
+                <input type="submit" className="btn btn-primary btn-block" value="Login" />
+              </form>
+            </div>
           )}
           {/* {error && (
             <div className="my-3 p-3 bg-danger text-white">

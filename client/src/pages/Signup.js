@@ -47,29 +47,36 @@ const Signup = () => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form className="form-inline" onSubmit={handleFormSubmit}>
-                <label for="username"><span className="icon is-small">
-                  <i className="fa fa-user">
-                  </i>
-                </span> Username: </label>
-                <input type="text" placeholder="Enter username" name="username" required value={formState.name} onChange={handleChange} />
+              
+              <div className="login-form">
+              <form>
+                <div className="form-group" onSubmit={handleFormSubmit}>
+                <div className="form-group">
+                    <label for="email"><span className="icon is-small">
+                      <i className="fa fa-user">
+                      </i>
+                    </span> Email </label>
+                    <input class="form-control" type="email" placeholder="Enter email" name="email" required="required" value={formState.email} onChange={handleChange} />
+                  </div>
+                  <div className="form-group">
+                    <label for="email"><span className="icon is-small">
+                      <i className="fa fa-envelope">
+                      </i>
+                    </span> Email </label>
+                    <input class="form-control" type="email" placeholder="Enter email" name="email" required="required" value={formState.email} onChange={handleChange} />
+                  </div>
 
-                <label for="email"><span className="icon is-small">
-                  <i className="fa fa-envelope">
-                  </i>
-                </span> Email: </label>
-                <input type="email" placeholder="Enter email" name="email" required value={formState.email} onChange={handleChange} />
-
-                <label for="pwd"><span className="icon is-small">
-                  <i className="fa fa-lock">
-                  </i>
-                </span> Password: </label>
-                <input type="password" placeholder="*******" name="password" required value={formState.password} onChange={handleChange} />
-
-                <button type="submit">
-                  Sign Up
-                </button>
+                  <div className="form-group">
+                    <label for="pwd"><span className="icon is-small">
+                      <i className="fa fa-lock">
+                      </i>
+                    </span> Password </label>
+                    <input class="form-control" type="password" placeholder="*******" name="password" required value={formState.password} onChange={handleChange} />
+                  </div>
+                </div>
+                <input type="submit" className="btn btn-primary btn-block" value="Login" />
               </form>
+            </div>
 
             )}
 

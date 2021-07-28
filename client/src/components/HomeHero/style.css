@@ -15,10 +15,9 @@
 }
 
 .login-card {
-  border: 1px solid darkgreen;
   border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  padding: 16px;
+  max-width: 400px;
+  max-height: 500px;;
   background: white;
 }

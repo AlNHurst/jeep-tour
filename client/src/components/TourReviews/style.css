@@ -1,7 +1,10 @@
-.carousel {
-  width: 500px;
-  height: 150px;
-  margin: auto;
+.carousel-section {
+  height: 600px;
+}
+
+.react-multi-carousel-item{
+  max-width: 660px;
+  min-width: 660px;
 }
 
 .tourReviews-container {
@@ -13,7 +16,7 @@
 
 .tourReviews-mainbox {
   position: relative;
-  width: 800px;
+  width: 575px;
   height: 300px;
   border-radius: 10px;
   background-color: #282828;
@@ -31,9 +34,36 @@
 
 .tourReviews-imgbox img{
  border-radius: 75%;
- height: 200px;
+ height: 100px;
+ width: 100px;
 }
 
 .tourReviews-info {
   color: #fff;
+  font-size: 18px;
+  padding: 8px;
+}
+
+.tourReviews-info ul {
+  list-style-type: none;
+  color: yellow;
+}
+
+.top-left {
+  position: absolute;
+  top: 80%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+}
+
+.top-middle {
+  position: absolute;
+  top: 10%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+}
+
+.body-text {
+padding: 50px;
+align-self: center;
 }
