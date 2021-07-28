@@ -12,7 +12,7 @@ import './style.css';
 const stripePromise = loadStripe('pk_test_51JGnh7DEEk2RiGSYfn0k0rI7DQBnnGaZHdJn0JQEOg1ed4scJaWl9sKA1vsitOL0ly42farkhEjSMyT7xvoL7k9s00RMkS6hcM');
 
 
-const CartItems = () => {
+const Cart = () => {
 
   const [state, dispatch] = useStoreContext();
   console.log('state.cart', state.cart);
@@ -91,4 +91,4 @@ const CartItems = () => {
   );
 };
 
-export default CartItems;
+export default Cart;

@@ -3,21 +3,10 @@ const bcrypt = require("bcrypt");
 
 const reviewSchema = new Schema({
   
-  name: {
-    type: String,
-    required: true,
-  },
-  comment: {
-    type: String,
-    required: true,
-  },
+  name: String,
+  comment: String,
   rating: String,
-   
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-  }
-  
+ 
 }
 
 );
