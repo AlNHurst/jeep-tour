@@ -4,6 +4,36 @@
   margin: auto;
 }
 
-/* .review-wrapper {
+.tourReviews-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-} */
+.tourReviews-mainbox {
+  position: relative;
+  width: 800px;
+  height: 300px;
+  border-radius: 10px;
+  background-color: #282828;
+  box-shadow: 0 30px 30px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+
+.tourReviews-imgbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tourReviews-imgbox img{
+ border-radius: 75%;
+ height: 200px;
+}
+
+.tourReviews-info {
+  color: #fff;
+}

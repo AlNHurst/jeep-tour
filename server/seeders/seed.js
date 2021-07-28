@@ -93,17 +93,28 @@ db.once('open', async () => {
       username: "Pam Holt",
       email: 'pamela@testmail.com',
       password: 'password12345',
+      imageJpg: `https://res.cloudinary.com/dije62fvf/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1627429062/Aruba/Pam_qpgyic.jpg`,
       orders: [
         {
           products: [products[0]._id, products[0]._id, products[1]._id]
         }
-      ]
+      ], 
+      review: 
+        {
+          comment: `I knew I wanted to see as much as Aruba as I could, specifically the natural pool. What I didn't expect was the experience I had. Highly recommend this company!`
+        }
     });
   
     await User.create({
      username: "elijah",
       email: 'eholt@testmail.com',
-      password: 'password12345'
+      password: 'password12345', 
+      imageJpg: `https://res.cloudinary.com/dije62fvf/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo[…]_red,b_rgb:262c35/v1627429159/Aruba/elijah-image_lpcq6o.jpg`,
+      review: 
+        {
+          comment: `Truly a great adventure. I never knew the desert can be so beautiful. The tour took us to the north side cliffs with big waves that were huge. After that we went to the caves and the natural pedicure pool that was an experience!! Finally we visited the natural pool it was so amazing with all the fish trapped from the waves crashing over the walls.`
+        }
+
     });
   
     console.log('users seeded');

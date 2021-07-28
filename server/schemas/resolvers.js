@@ -25,7 +25,7 @@ const resolvers = {
       return await Product.find(params);
     },
     products: async () => {
-      return Product.find();
+      return Product.find().populate('tourPackage');
     },
     
     product: async (_, args) => {
@@ -43,12 +43,15 @@ const resolvers = {
     orders: async () => {
       return Order.find();
     },
+    getOrder: async(_, args) => {
+      return Order.findOne({ _id: args.id });
+    },
     order: async (_, args, context) => {
       if (context.user) {
         const user = await User.findOne(context.user._id).populate({
           path: 'orders.products',
         });
-        return user.orders.id(_id);
+        return user.orders.id(_id, name);
       }
       throw new AuthenticationError('Not logged in');
     },
@@ -96,10 +99,9 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addOrder: async (parent, { products }, context) => {
-      console.log(context);
+    addOrder: async (parent, { name, email, phone, time, date, products }, context) => {
       if (context.user) {
-        const order = new Order({ products });
+        const order = new Order({ name, email, phone, time, date, products });
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 

@@ -6,15 +6,27 @@ export const QUERY_USERS = gql`
       _id
       username
       email
+      imageJpg
+      review {
+        _id
+        comment
+        rating
+      }
       orders {
         _id
-          purchaseDat}
+        name
+        email
+        phone
+        date
+        time
+          purchaseDate
         products {
           _id
           name     
           price
         }
     }
+  }
   }`;
 
 export const QUERY_PRODUCTS = gql`
@@ -75,13 +87,14 @@ export const QUERY_USER = gql`
       email
       orders {
         _id
-        purchaseDate}
+          purchaseDate
         products {
           _id
           name     
           price
         }
     }
+  }
   }`;
 
 export const QUERY_ME = gql`
@@ -136,9 +149,26 @@ export const QUERY_REVIEWS = gql`
     }
   }`;
 
-  export const Query_ORDERS = gql`
+export const Query_ORDERS = gql`
   query orders {
     orders {
+      _id  
+      name
+      phone
+      email
+      date
+      time
+      purchaseDate
+      products {
+        _id
+        name
+      }
+    }
+  }`;
+
+export const Query_ORDER = gql`
+  query order($id: ID!)  {
+    order(id: $id) {
       _id  
       purchaseDate
       products {
@@ -148,9 +178,9 @@ export const QUERY_REVIEWS = gql`
     }
   }`;
 
-  export const Query_ORDER= gql`
-  query order($id: ID!)  {
-    orders(id: $id) {
+  export const Query_GET_ORDER = gql`
+  query getOrder($id: ID!)  {
+    order(id: $id) {
       _id  
       purchaseDate
       products {

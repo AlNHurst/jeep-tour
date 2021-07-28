@@ -14,6 +14,15 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
+  formatError: (err) => {
+    console.log(err);
+    return err;
+  },
+  logger: {
+    debug: true,
+    error: true,
+    info: true,
+  },
 });
 
 server.applyMiddleware({ app });
