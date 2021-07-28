@@ -11,8 +11,6 @@ const Home = () => {
   return (
     <main>
       <Container style={{ padding: '24px', margin: 'auto'}}><div><TourPackages /></div></Container>
-      <Container style={{ padding: '24px', margin: 'auto'}}><div><TourReviews /></div></Container>
-      <Container style={{ padding: '24px', margin: 'auto'}}><div><ReviewForm /></div></Container>
     </main>
   );
 };
