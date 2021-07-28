@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USERS = gql`
   query users {
@@ -14,20 +14,16 @@ export const QUERY_USERS = gql`
       }
       orders {
         _id
-        name
-        email
-        phone
-        date
-        time
-          purchaseDate
+        purchaseDate
         products {
           _id
-          name     
+          name
           price
         }
+      }
     }
   }
-  }`;
+`;
 
 export const QUERY_PRODUCTS = gql`
   query getProducts($tourPackage: ID) {
@@ -87,15 +83,16 @@ export const QUERY_USER = gql`
       email
       orders {
         _id
-          purchaseDate
+        purchaseDate
         products {
           _id
-          name     
+          name
           price
         }
+      }
     }
   }
-  }`;
+`;
 
 export const QUERY_ME = gql`
   query me {
@@ -104,8 +101,8 @@ export const QUERY_ME = gql`
       username
       email
     }
-  }`;
-
+  }
+`;
 
 export const QUERY_TOURS = gql`
   query tourPackages {
@@ -121,7 +118,8 @@ export const QUERY_TOURS = gql`
       duration
       departureTimes
     }
-  }`;
+  }
+`;
 
 export const QUERY_TOUR = gql`
   query tourPackage($id: ID!) {
@@ -137,7 +135,8 @@ export const QUERY_TOUR = gql`
       duration
       departureTimes
     }
-  }`;
+  }
+`;
 
 export const QUERY_REVIEWS = gql`
   query tourReviews {
@@ -145,47 +144,59 @@ export const QUERY_REVIEWS = gql`
       _id
       user_id
       comment
-      rating  
+      rating
     }
-  }`;
+  }
+`;
 
 export const Query_ORDERS = gql`
   query orders {
     orders {
-      _id  
+      _id
+      purchaseDate
+      products {
+        _id
+        name
+      }
+    }
+  }
+`;
+
+export const Query_ORDER = gql`
+  query order($id: ID!) {
+    order(id: $id) {
+      _id
+      purchaseDate
+      products {
+        _id
+        name
+      }
+    }
+  }
+`;
+
+export const Query_GET_ORDER = gql`
+  query getOrder($id: ID!) {
+    order(id: $id) {
+      _id
+      purchaseDate
+      products {
+        _id
+        name
+      }
+    }
+  }
+`;
+
+export const QUERY_RESERVATIONS = gql`
+  query reservations {
+    reservations {
+      _id
       name
       phone
       email
       date
       time
-      purchaseDate
-      products {
-        _id
-        name
-      }
     }
-  }`;
-
-export const Query_ORDER = gql`
-  query order($id: ID!)  {
-    order(id: $id) {
-      _id  
-      purchaseDate
-      products {
-        _id
-        name
-      }
-    }
-  }`;
-
-  export const Query_GET_ORDER = gql`
-  query getOrder($id: ID!)  {
-    order(id: $id) {
-      _id  
-      purchaseDate
-      products {
-        _id
-        name
-      }
-    }
-  }`;
+  }
+`;

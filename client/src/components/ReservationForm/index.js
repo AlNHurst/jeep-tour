@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { ADD_ORDER } from '../../utils/mutations';
+import { ADD_RESERVATION } from '../../utils/mutations';
 import { Form } from 'react-bootstrap';
 import Cart from '../Cart';
 
@@ -14,7 +14,7 @@ const ReservationForm = () => {
     date: '',
     time: '',
   });
-  const [addOrder, { data }] = useMutation(ADD_ORDER);
+  const [addReservation, { data }] = useMutation(ADD_RESERVATION);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -28,7 +28,7 @@ const ReservationForm = () => {
     event.preventDefault();
 
     try {
-      await addOrder({
+      await addReservation({
         variables: { ...formState },
       });
     } catch (e) {
@@ -71,8 +71,8 @@ const ReservationForm = () => {
                 placeholder="Departure time:"
                 for="time"
                 name="time" value={formState.time} onChange={handleChange}>
-                <option value="08:30">8:30 A.M.</option>
-                <option value="14:00">2:00 P.M.</option>
+                <option value="08:30 a.m.">8:30 A.M.</option>
+                <option value="2:00 p.m.">2:00 P.M.</option>
             </Form.Select>
 
             <button type="submit">
@@ -82,7 +82,7 @@ const ReservationForm = () => {
         )}
       </div>
       <div>
-        <Cart />
+        {/* <Cart /> */}
       </div>
 
     </>

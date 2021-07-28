@@ -57,9 +57,9 @@ const ProductList = () => {
         }
       </div>
           <ReservationForm />
-      <button>
+      {/* <button>
         Make Reservation
-      </button>
+      </button> */}
     </>
   );
 }

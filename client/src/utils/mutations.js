@@ -28,22 +28,34 @@ export const ADD_USER = gql`
 export const ADD_ORDER = gql`
   mutation addOrder($products: [ID]!) {
     addOrder(products: $products) {
-      name
-      phone
-      email
-      date
-      time
       purchaseDate
       products {
         _id
         name
+        description
         price
+        quantity
         tourPackage {
           _id
         }
       }
     }
   }
+`;
+
+export const ADD_RESERVATION = gql`
+  mutation addReservation($name: String!, $phone: String!, $email: String!, $date: String!, $time: String!) {
+    addReservation(name: $name, phone: $phone, email: $email, date: $date, time: $time) 
+      {
+        _id
+        name
+        phone
+        email
+        date
+        time 
+      }
+    }
+  
 `;
 
 

@@ -59,13 +59,13 @@ const SingleTour = () => {
           <li>Adult Price: ${tour.adultPrice}</li>
           <li>Child Price: ${tour.childPrice}</li>
         </ul>
-        <button>
+        {/* <button>
           Schedule Reservation
-        </button>
+        </button> */}
       </div>
-      <div>
+      {/* <div>
         <CartItem />
-      </div>
+      </div> */}
     </>
   );
 };

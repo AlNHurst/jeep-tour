@@ -8,7 +8,8 @@ import {
   UPDATE_TOURPACKAGE,
   UPDATE_CURRENT_TOURPACKAGE,
   CLEAR_CART,
-  TOGGLE_CART
+  TOGGLE_CART,
+  UPDATE_RESERVATION_FORM
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -78,7 +79,14 @@ export const reducer = (state, action) => {
       return {
         ...state,
         currentTourPackage: action.currentTourPackage,
-      }
+      };
+
+      case UPDATE_RESERVATION_FORM: {
+        return {
+          ...state,
+          reservationForm: [...action.payload],
+        };
+  }
 
     default:
       return state;
