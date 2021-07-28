@@ -4,9 +4,6 @@ const tourSeeds = require('./tourSeeds.json');
 const reviewSeeds = require('./reviewSeeds.json');
 const productSeeds = require('./productSeeds.json');
 
-
-
-
 db.once('open', async () => {
   try {
     await TourPackage.deleteMany({});
