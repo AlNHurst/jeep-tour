@@ -57,7 +57,7 @@ const Login = (props) => {
                   </i>
                 </span> Email: </label>
                 <input type="email" placeholder="Enter email" name="email" required value={formState.email} onChange={handleChange} />
-              </FormGroup>
+              
               <label for="pwd"><span className="icon is-small">
                 <i className="fa fa-lock">
                 </i>
@@ -67,6 +67,7 @@ const Login = (props) => {
               <button type="submit">
                 Login
               </button>
+              </FormGroup>
             </form>
           )}
           {/* {error && (
