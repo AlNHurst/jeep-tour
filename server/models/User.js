@@ -23,7 +23,11 @@ const userSchema = new Schema({
   },
   imageJpg: String,
   orders: [Order.schema], 
-  review: Review.schema
+  review: {
+    type: Schema.Types.ObjectId,
+    ref: 'Review',
+  }
+  
 });
 
 userSchema.pre('save', async function (next) {
