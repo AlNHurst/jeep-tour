@@ -46,7 +46,7 @@ const TourReviews = () => {
               <div className="tourReviews-info">
                 <h4>{user.username}</h4>
                 {/* rating */}
-                <p>{user.review.comment}</p>
+                {/* <p>{user.review.comment}</p> */}
               </div>
             </div>
           );

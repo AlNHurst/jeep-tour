@@ -60,6 +60,15 @@ const typeDefs = gql`
     session: ID
   }
 
+  type Reservation {
+    _id: ID
+    name: String
+    phone: String
+    email: String
+    date: String
+    time: String
+  }
+
   type Query {
     users: [User]
     user(id: ID!): User
@@ -74,12 +83,14 @@ const typeDefs = gql`
     checkout(products: [ID]!): Checkout
     getProducts(tourPackage: ID): [Product]
     getOrder(id: ID!): Order
+    reservations: [Reservation]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addOrder(products: [ID]!): Order
+    addReservation(name: String!, phone: String!, email: String!, date: String!, time: String!): Reservation
   }
 `;
 

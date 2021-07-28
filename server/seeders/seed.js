@@ -1,8 +1,9 @@
 const db = require('../config/connection');
-const { User, TourPackage, Review, Product, Order} = require('../models');
+const { User, TourPackage, Review, Product, Order, Reservation} = require('../models');
 const tourSeeds = require('./tourSeeds.json');
 const reviewSeeds = require('./reviewSeeds.json');
 const productSeeds = require('./productSeeds.json');
+
 
 
 
@@ -87,6 +88,15 @@ db.once('open', async () => {
     await Review.deleteMany({});
     await Review.create(reviewSeeds);
     
+      await Reservation.deleteMany({});
+      await Reservation.create({
+        name: "Jess",
+        phone: "5555555",
+        email: "test@test.com",
+        date: "01/02/2025",
+        time: "8:30 a.m."
+      });
+
     await User.deleteMany({});
 
     await User.create({
