@@ -28,9 +28,9 @@ const typeDefs = gql`
 
   type Review {
     _id: ID
-    user_id: ID
+    name: String!
     comment: String!
-    rating: Int
+    rating: String
   }
 
   type Auth {
@@ -84,6 +84,7 @@ const typeDefs = gql`
     getProducts(tourPackage: ID): [Product]
     getOrder(id: ID!): Order
     reservations: [Reservation]
+    reviews: [Review]
   }
 
   type Mutation {
@@ -91,6 +92,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addOrder(products: [ID]!): Order
     addReservation(name: String!, phone: String!, email: String!, date: String!, time: String!): Reservation
+    addReview(name: String!, comment: String!, rating: String): Review
   }
 `;
 
