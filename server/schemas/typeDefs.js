@@ -6,7 +6,8 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    reviews: [Review]
+    imageJpg: String
+    review: Review
     orders: [Order]
     products: [Product]
   }
@@ -37,8 +38,6 @@ const typeDefs = gql`
     user: User
   }
 
-
-
   type Product {
     _id: ID
     name: String
@@ -47,8 +46,13 @@ const typeDefs = gql`
   }
 
   type Order {
-    _id: ID
-    purchaseDate: String
+  _id: ID
+  name: String
+  phone: String
+  email: String
+  date: String
+  time: String
+  purchaseDate: String
     products: [Product]
   }
 
@@ -69,6 +73,7 @@ const typeDefs = gql`
     tourPackage(id: ID!): TourPackage
     checkout(products: [ID]!): Checkout
     getProducts(tourPackage: ID): [Product]
+    getOrder(id: ID!): Order
   }
 
   type Mutation {

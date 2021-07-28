@@ -28,6 +28,11 @@ export const ADD_USER = gql`
 export const ADD_ORDER = gql`
   mutation addOrder($products: [ID]!) {
     addOrder(products: $products) {
+      name
+      phone
+      email
+      date
+      time
       purchaseDate
       products {
         _id

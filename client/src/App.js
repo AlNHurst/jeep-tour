@@ -45,39 +45,31 @@ const client = new ApolloClient({
 
 function App() {
   return (
+
     <StoreProvider>
       <ApolloProvider client={client}>
         <Router>
-          <div className="grid-container">
-            <div className="header">
-              <Header />
-            </div>
-            {/* <div className="navbar">
-              <Navbar />
-            </div> */}
-            <div className="hero">
-              <HomeHero />
-            </div>
-            <div className="content">
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route exact path="/singletour/:tourId">
-                <SingleTour />
-              </Route>
-              <Route exact path="/productlist">
-                <ProductList />
-              </Route>
-              <Route exact path="/success" component={Success} />
-              <Route exact path="/orderHistory" component={OrderHistory} />
-            </div>
-            <div className="footer">
-              <Footer />
-            </div>
-          </div>
+          <Header />
+          <HomeHero />
+
+          <Route exact path="/"><Home />
+          </Route>
+
+          <Route exact path="/singletour/:tourId"><SingleTour />
+          </Route>
+
+          <Route exact path="/productlist"><ProductList />
+          </Route>
+
+          <Route exact path="/success" component={Success} />
+
+          <Route exact path="/orderHistory" component={OrderHistory} />
+
+          <Footer />
         </Router>
       </ApolloProvider >
     </StoreProvider>
+
   );
 }
 

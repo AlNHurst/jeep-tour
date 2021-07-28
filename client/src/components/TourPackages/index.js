@@ -16,27 +16,29 @@ const TourPackages = () => {
 
   return (
     <>
-      <div className="tourPackages-container">
-        <div className="row " style={{ padding: '16px' }}>
+      <div>
+        <div className="tourPackages-container">
           {tourList.map(tour => (
             <>
-              <div className="col-lg-4 col-xm-12 px-5">
-                <Card style={{ width: '18rem', paddingTop: '16px' }}>
-                  <Card.Img style={{ width: '16rem' }} src={tour.url} />
-                  <Card.Body>
-                    <Card.Title>
-                      {tour.name}
-                    </Card.Title>
-                    <Card.Text>
-                      Description: {tour.shortDescription}
-                      <p>{tour._id}</p>
-                    </Card.Text>
-                  </Card.Body>
-                    <Link to={`/singletour/${tour._id}`}>
-                  <button>View Details and Book
-                  </button>
-                    </Link>
-                </Card>
+              <div className="tourPackages-mainbox">
+                <div className="tourPackages-imgbox">
+                  <img src={tour.url} alt="" />
+                  <h1 className="top-center">{tour.name}</h1>
+                </div>
+                <div className="tourPackages-details">
+                  <h4>Details</h4>
+                  <div className="tourPackages-info">
+                    <h4>{tour.name}</h4>
+                    <p>{tour.shortDescription}</p>
+                    <ul>
+                      <li>{tour.destinations[0]} | {tour.destinations[1]} | {tour.destinations[2]}</li>
+                      <li>Adult $ {tour.adultPrice}</li>
+                      <li>Child $ {tour.childPrice}</li>
+                    </ul>
+                    <Link to={`/singletour/${tour._id}`}><button className="myButton">Book Now!</button></Link>
+
+                  </div>
+                </div>
               </div>
             </>
           ))}

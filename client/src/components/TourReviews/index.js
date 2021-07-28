@@ -1,18 +1,18 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_REVIEWS } from '../../utils/queries';
+import { QUERY_USERS } from '../../utils/queries';
 import './style.css';
 
 import { Card } from 'react-bootstrap';
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 const TourReviews = () => {
-  const { loading, error, data } = useQuery(QUERY_REVIEWS);
+  const { loading, error, data } = useQuery(QUERY_USERS);
   if (loading) return <div>'Loading...';</div>
   if (error) return `Error! ${error.message}`;
 
-  const reviewsList = data?.tourReviews || [];
+  const usersList = data?.users || [];
 
   const responsive = {
     superLargeDesktop: {
@@ -35,27 +35,24 @@ const TourReviews = () => {
   };
 
   return (
-    <>
-      <div className="review-wrapper">
-        <Carousel responsive={responsive}>
-          {reviewsList.map((review) => {
-            return (
-            
-                <Card style={{}}>
-                  <Card.Body>
-                    <p>{review.comment}</p>
-                  </Card.Body>
-                  <Card.Footer>
-
-                    <p style={{ color: 'black' }}>Contributor: {review.comment}</p>
-
-                  </Card.Footer>
-                </Card>
-              );
-          })}
-        </Carousel>
+    <Carousel responsive={responsive}>
+      <div className="tourReviews-container">
+        {usersList.map((user) => {
+          return (
+            <div className="tourReviews-mainbox">
+              <div className="tourReviews-imgbox">
+                <img src={user.imageJpg} alt="" />
+              </div>
+              <div className="tourReviews-info">
+                <h4>{user.username}</h4>
+                {/* rating */}
+                <p>{user.review.comment}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
-    </>
+    </Carousel>
   );
 };
 
