@@ -31,9 +31,7 @@ export const ADD_ORDER = gql`
       products {
         _id
         name
-        description
-        price
-        quantity
+        price    
         tourPackage {
           _id
         }

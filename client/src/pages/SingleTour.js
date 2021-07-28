@@ -65,9 +65,9 @@ const SingleTour = () => {
           Schedule Reservation
         </button> */}
       </div>
-      {/* <div>
+      <div>
         <CartItem />
-      </div> */}
+      </div>
     </>
   );
 };
