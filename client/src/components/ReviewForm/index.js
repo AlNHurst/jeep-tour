@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from '../../utils/mutations';
 import { Form, Button } from 'react-bootstrap';
+import './style.css';
 
 const ReviewForm = () => {
 
@@ -70,11 +71,11 @@ const ReviewForm = () => {
           value={formState.rating}
             onChange={handleChange}>
             <Form.Label>Rating</Form.Label>
-            <input className="star" type="radio" name="rating" value="1" /><i></i>
-            <input className="star" type="radio" name="rating" value="2" /><i></i>
-            <input className="star" type="radio" name="rating" value="3" /><i></i>
-            <input className="star" type="radio" name="rating" value="4" /><i></i>
-            <input className="star" type="radio" name="rating" value="5" /><i></i>
+            <input className="star" type="radio" name="rating" value="1" /><i className="far fa-star"></i>
+            <input className="star" type="radio" name="rating" value="2" /><i className="far fa-star"></i>
+            <input className="star" type="radio" name="rating" value="3" /><i className="far fa-star"></i>
+            <input className="star" type="radio" name="rating" value="4" /><i className="far fa-star"></i>
+            <input className="star" type="radio" name="rating" value="5" /><i className="far fa-star"></i>
           </Form.Group>
 
           <div className="d-grid gap-2">
