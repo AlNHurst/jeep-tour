@@ -74,7 +74,7 @@ const Signup = () => {
                     <input class="form-control" type="password" placeholder="*******" name="password" required value={formState.password} onChange={handleChange} />
                   </div>
                 </div>
-                <input type="submit" className="btn btn-primary btn-block" value="Login" />
+                <input type="submit" className="btn btn-primary btn-block" value="Sign Up" />
               </form>
             </div>
 
