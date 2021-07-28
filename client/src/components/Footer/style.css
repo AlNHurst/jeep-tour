@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+
+.footer {
+    padding: 4px;
+    font-family: 'Acme', sans-serif;
+    display: inline-block;
+    
+    
+}
+
+a {
+    padding:6px;
+    font-family: 'Acme', sans-serif;
+}
+
+.icon:hover {
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        transition: all 0.3s ease 0s;
+}
+
+.copy {
+    font-weight: bold;
+}

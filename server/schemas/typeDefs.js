@@ -92,8 +92,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addOrder(products: [ID]!): Order
-    addReservation(name: String!, phone: String!, email: String!, date: String!, time: String!): Reservation
-    addReview(name: String, comment: String, rating: String): Review
+    addReservation(name: String!, phone: String!, email: String!, date: String!, time: String!): Auth
+    addReview(name: String, comment: String, rating: String): Auth
   }
 `;
 
