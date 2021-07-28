@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_TOUR } from '../utils/queries';
 import ProductList from '../components/ProductList';
-import CartItem from '../components/Cart';
+import Cart from '../components/Cart';
 import ReservationForm from '../components/ReservationForm';
 
 const SingleTour = () => {
@@ -66,7 +66,7 @@ const SingleTour = () => {
         </button> */}
       </div>
       <div>
-        <CartItem />
+        <Cart />
       </div>
     </>
   );
