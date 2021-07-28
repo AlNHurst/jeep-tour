@@ -20,6 +20,7 @@ import HomeHero from './components/HomeHero';
 import OrderHistory from './pages/OrderHistory';
 import ReviewForm from './components/ReviewForm';
 import TourReviews from './components/TourReviews';
+import About from './pages/About';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -62,6 +63,9 @@ function App() {
             </Route>
 
             <Route exact path="/productlist"><ProductList />
+            </Route>
+
+            <Route exact path="/about"><About />
             </Route>
 
             <Route exact path="/success" component={Success} />
