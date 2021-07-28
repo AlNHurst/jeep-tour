@@ -54,8 +54,8 @@ const Login = (props) => {
             <div className="text-left">
               <Card>
                 <Card.Body>
-                  <form className="form-group">
-                    <div onSubmit={handleFormSubmit}>
+                  <form onSubmit={handleFormSubmit} className="form-group">
+                    <div >
                       <div>
                         <label className="form-label" for="email"><span className="icon is-small">
                           <i className="fa fa-envelope">
