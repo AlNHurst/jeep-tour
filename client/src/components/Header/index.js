@@ -56,12 +56,13 @@ const Header = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light">
-        <Container>
+    
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <Link className="navbar-brand" to="/">Aruba Jeep Tours</Link>
           <img src={logo} alt="jeep tours logo" style={{ height: 70, padding: '8px' }} />
-          <a className="navbar-brand" href="/">Aruba Jeep Tours</a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          </button>
+          
+          
+
           <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul className="navbar-nav">
               <li className="mx-1">
@@ -82,7 +83,7 @@ const Header = () => {
           </div>
           <div>
             {renderControls()}</div>
-        </Container>
+     
       </nav>
       <div className="header-container">
         <div className="login">
