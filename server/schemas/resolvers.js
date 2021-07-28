@@ -114,11 +114,16 @@ const resolvers = {
       });
       return reservation;
     },
-    addReview: async (_, { name, comment, rating }) => {
+    addReview: async (_, { name, comment, rating }, context) => {
       const review = await Review.create({
         name,
         comment, rating
       });
+      if (context.user){
+        const newReview = new Review ({ review });
+      await User.findByIdAndUpdate(context.user._id, {
+        $push: { newReviews: newReview },
+      })};
       return review;
     },
 

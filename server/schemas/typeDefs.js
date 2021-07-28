@@ -31,6 +31,7 @@ const typeDefs = gql`
     name: String!
     comment: String!
     rating: String
+    user: User
   }
 
   type Auth {
