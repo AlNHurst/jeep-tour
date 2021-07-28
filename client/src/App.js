@@ -15,7 +15,7 @@ import Footer from './components/Footer';
 import SingleTour from './pages/SingleTour';
 import ProductList from './components/ProductList';
 import Success from './pages/Success';
-import Header from './components/Header';
+import NavigationBar from './components/NavigationBar';
 import HomeHero from './components/HomeHero';
 import OrderHistory from './pages/OrderHistory';
 import ReviewForm from './components/ReviewForm';
@@ -51,25 +51,27 @@ function App() {
     <StoreProvider>
       <ApolloProvider client={client}>
         <Router>
-          <Header />
-          <HomeHero />
+          <div className="grid-areas">
+            <NavigationBar className="navigation-grid"/>
+            <HomeHero className="homehero-grid" />
 
-          <Route exact path="/"><Home />
-          </Route>
+            <Route exact path="/"><Home className="home-grid" />
+            </Route>
 
-          <Route exact path="/singletour/:tourId"><SingleTour />
-          </Route>
+            <Route exact path="/singletour/:tourId"><SingleTour />
+            </Route>
 
-          <Route exact path="/productlist"><ProductList />
-          </Route>
+            <Route exact path="/productlist"><ProductList />
+            </Route>
 
-          <Route exact path="/success" component={Success} />
+            <Route exact path="/success" component={Success} />
 
-          <Route exact path="/orderHistory" component={OrderHistory} />
+            <Route exact path="/orderHistory" component={OrderHistory} />
 
-          {/* <TourReviews /> */}
-          <ReviewForm />
-          <Footer />
+            <TourReviews className="review-grid"/>
+            <ReviewForm className="review-form-grid"/>
+            <Footer className="footer-grid" />
+          </div>
         </Router>
       </ApolloProvider >
     </StoreProvider>

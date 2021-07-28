@@ -1,23 +1,25 @@
 [
     {
-      "user_id": "60faea21b859664f1c02d508",
-      "tour_id": "60fb96b0f3e27352a89b2a8a",
-      "comment": "This is amazing!",
-      "rating": 4
-    
+      "name": "Pam Holt",
+      "comment": "Truly a great adventure. I never knew the desert can be so beautiful. The tour took us to the north side cliffs with big waves that were huge. After that we went to the caves and the natural pedicure pool that was an experience!! Finally we visited the natural pool it was so amazing with all the fish trapped from the waves crashing over the walls.",
+      "rating": "4"
     },
     {
-        "user_id": "60faea21b859664f1c02d508",
-        "tour_id": "60fb96b0f3e27352a89b2a8b",
-        "comment": "Great company!",
-        "rating": 5
+        "name": "Elijah Carter",
+        "comment": "Aruba is amazing, and I am glad I took the tour with ABC. The tour guides were great, I saw parts of the island I would have never seen. Took the tour our first day, it was worth it. Rode through the national park, saw all the sights, and got a history of the island. It is an early trip, but it takes you to incredible places. Snorkeled in Conchi, saw the native people's cave drawings, and finished with a great lunch! ",
+        "rating": "5"
       
       },
       {
-        "user_id": "60faea21b859664f1c02d508",
-        "tour_id": "60fb96b0f3e27352a89b2a8c",
-        "comment": "Best tour ever",
-        "rating": 5
+        "name": "Danny N",
+        "comment": "Just ask for The Boss Lady. What an amazing company with great vehicles to rent and explore the island. They have great staff who are very friendly and welcoming and always willing to answer your questions.",
+        "rating": "5"
+      
+      },
+      {
+        "name": "Vahlen E",
+        "comment": "I knew I wanted to see as much as Aruba as I could, specifically the natural pool. What I did not expect was the experience I had.",
+        "rating": "5"
       
       }
   

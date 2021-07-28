@@ -148,7 +148,7 @@ export const QUERY_REVIEWS = gql`
   query tourReviews {
     tourReviews {
       _id
-      user_id
+      name
       comment
       rating
     }

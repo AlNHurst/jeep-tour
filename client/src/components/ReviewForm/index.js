@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from '../../utils/mutations';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 const ReviewForm = () => {
 
@@ -43,29 +43,48 @@ const ReviewForm = () => {
       ) : (
         <form className="form-inline" onSubmit={handleFormSubmit}>
           <Form.Group>
-            <label for="name">Name: </label>
-            <input type="text" placeholder="Name" name="name" required value={formState.name} onChange={handleChange} />
+            <Form.Label>Name: </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Name"
+              name="name"
+              required
+              value={formState.name}
+              onChange={handleChange} >
+            </Form.Control>
           </Form.Group>
+
 
           <Form.Group>
-            <label for="comment">Review: </label>
-            <input type="textarea" placeholder="Please type your review" name="comment" required value={formState.comment} onChange={handleChange} />
+            <Form.Label>Comment:</Form.Label>
+            <Form.Control
+              as="textarea"
+              placeholder="Please type your review"
+              name="comment"
+              required
+              value={formState.comment}
+              onChange={handleChange} />
           </Form.Group>
 
-          {/* <Form.Group>
-            <label for="rating">Rating</label>
-            <span class="star-rating">
-              <input type="radio" name="rating" value="1"><i></i></input>
-              <input type="radio" name="rating" value="2"><i></i></input>
-              <input type="radio" name="rating" value="3"><i></i></input>
-              <input type="radio" name="rating" value="4"><i></i></input>
-              <input type="radio" name="rating" value="5"><i></i></input>
-            </span>
-          </Form.Group> */}
+          <Form.Group value={formState.rating}
+            onChange={handleChange}>
+            <Form.Label>Rating</Form.Label>
+            <input className="star" type="radio" name="rating" value="1" /><i></i>
+            <input className="star" type="radio" name="rating" value="2" /><i></i>
+            <input className="star" type="radio" name="rating" value="3" /><i></i>
+            <input className="star" type="radio" name="rating" value="4" /><i></i>
+            <input className="star" type="radio" name="rating" value="5" /><i></i>
+              />
+          </Form.Group>
 
-          <button type="submit">
-            Submit Your Review
-          </button>
+          <div className="d-grid gap-2">
+            <Button
+              style={{ backgroundColor: '#2b6d2bb6', color: '#fff' }}
+              variant="secondary"
+              size="md"
+              type="submit">Submit
+            </Button>
+          </div>
         </form>
       )}
     </div>
