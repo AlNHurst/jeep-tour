@@ -36,10 +36,10 @@ This application is designed to assist a small business owner to better manage t
 
 ## Screenshots
 
-<img src="./assets/images/demo.gif">
-<img src="./assets/images/screenshot1.png">
-<img src="./assets/images/screenshot2.png">
-<img src="./assets/images/screenshot3.png">
+
+<img src=".client/public/screenshot.png">
+<img src="./client/public/screenshot1.png">
+
 
 
 
